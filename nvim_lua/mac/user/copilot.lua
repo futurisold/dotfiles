@@ -1,9 +1,3 @@
-local status_ok, copilot = pcall(require, "copilot")
-if not status_ok then
-  return
-end
-
-
 -- use this table to disable/enable specific filetypes
 -- vim.g.copilot_filetypes = { xml = false }
 
@@ -12,9 +6,9 @@ end
 vim.g.copilot_filetypes = { ["*"] = false, python = true }
 
 
--- imap <silent><script><expr> <C-a> copilot#Accept("\<CR>")
--- vim.g.copilot_no_tab_map = true
-vim.keymap.set.keymap("i", "<leader><CR>", ":copilot#Accept('\\<CR>')<CR>", { silent = true })
+vim.cmd[[imap <silent><script><expr> <leader><CR> copilot#Accept("\<CR>")]]
+vim.g.copilot_no_tab_map = true
+-- vim.keymap.set.keymap("i", "<C-j>", ":copilot#Accept('\\<CR>')<CR>", { silent = true })
 
 -- <C-]>                   Dismiss the current suggestion.
 -- <Plug>(copilot-dismiss)
