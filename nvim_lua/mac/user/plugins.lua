@@ -41,16 +41,6 @@ packer.init({
 -- Install your plugins here
 return packer.startup(function(use)
     use {
-        "zbirenbaum/copilot.lua",
-        config = function ()
-            require("copilot").setup()
-        end
-    }
-    use {
-        "zbirenbaum/copilot-cmp",
-        after = { "copilot.lua" },
-    }
-    use {
         "wbthomason/packer.nvim",
         commit = "6afb67460283f0e990d35d229fd38fdc04063e0a"
     } -- Have packer manage itself
@@ -126,7 +116,8 @@ return packer.startup(function(use)
         'ellisonleao/gruvbox.nvim'
     }
 
-	-- Cmp
+	-- LSP & completion
+    use { "github/copilot.vim" }
     use {
         "hrsh7th/nvim-cmp",
         commit = "b0dff0ec4f2748626aae13f011d1a47071fe9abc"
