@@ -7,8 +7,9 @@ vim.g.copilot_filetypes = { ["*"] = false, python = true }
 
 
 vim.cmd[[imap <silent><script><expr> <leader><CR> copilot#Accept("\<CR>")]]
+vim.keymap.set('i', '<leader>]', '<Plug>(copilot-dismiss)')
+
 vim.g.copilot_no_tab_map = true
--- vim.keymap.set.keymap("i", "<C-j>", ":copilot#Accept('\\<CR>')<CR>", { silent = true })
 
 -- <C-]>                   Dismiss the current suggestion.
 -- <Plug>(copilot-dismiss)
