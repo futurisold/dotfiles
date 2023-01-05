@@ -3,7 +3,13 @@
 
 -- since most are enabled by default you can turn them off
 -- using this table and only enable for a few filetypes
-vim.g.copilot_filetypes = { ["*"] = false, python = true }
+vim.g.copilot_filetypes = {
+    ["*"]=false,
+    python=true,
+    markdown=true,
+    html=true,
+    css=true
+}
 
 
 vim.cmd[[imap <silent><script><expr> <leader><CR> copilot#Accept("\<CR>")]]
