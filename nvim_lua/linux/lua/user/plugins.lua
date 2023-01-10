@@ -116,7 +116,8 @@ return packer.startup(function(use)
         'ellisonleao/gruvbox.nvim'
     }
 
-	-- Cmp
+	-- LSP & completion
+    use { "github/copilot.vim" }
     use {
         "hrsh7th/nvim-cmp",
         commit = "b0dff0ec4f2748626aae13f011d1a47071fe9abc"
@@ -148,16 +149,6 @@ return packer.startup(function(use)
         run = 'cd app && npm install',
         cmd = 'MarkdownPreview'
     }
-
-	-- Snippets
-    use {
-        "L3MON4D3/LuaSnip",
-        commit = "8f8d493e7836f2697df878ef9c128337cbf2bb84"
-    } --snippet engine
-    use {
-        "rafamadriz/friendly-snippets",
-        commit = "2be79d8a9b03d4175ba6b3d14b082680de1b31b1"
-    } -- a bunch of snippets to use
 
 	-- LSP
 	use {
@@ -197,6 +188,10 @@ return packer.startup(function(use)
 	use {
         "lewis6991/gitsigns.nvim",
         commit = "2c6f96dda47e55fa07052ce2e2141e8367cbaaf2"
+    }
+
+    use {
+        ("junegunn/vim-easy-align")
     }
 
 	-- Automatically set up your configuration after cloning packer.nvim
