@@ -26,4 +26,3 @@ dconf load /org/gnome/terminal/legacy/profiles:/ < /path/to/where/you/saved/your
 # References:
 - [chrisatmachine](https://github.com/LunarVim/Neovim-from-scratch/tree/master)
 - [fisadev](https://vim.fisadev.com/)
-
