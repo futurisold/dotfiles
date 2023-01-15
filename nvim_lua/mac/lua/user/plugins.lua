@@ -49,7 +49,7 @@ return packer.startup(function(use)
     use { "kyazdani42/nvim-tree.lua" } -- file explorer
     use { "akinsho/bufferline.nvim" } -- nice buffer display on top of the window
     use { "nvim-lualine/lualine.nvim" } -- nice status line display on the bottom of the window
-	use { "moll/vim-bbye" } -- buffer deletion without messing up the layout
+    use { "moll/vim-bbye" } -- buffer deletion without messing up the layout
     use { "akinsho/toggleterm.nvim" } -- toggle multiple terminal instances
     use { "ahmedkhalf/project.nvim" } -- displays the latest used projects
     use { "lewis6991/impatient.nvim", commit = "b842e16ecc1a700f62adb9802f8355b99b52a5a6" } -- caching to speed up Lua modules
@@ -57,8 +57,8 @@ return packer.startup(function(use)
     use { "goolord/alpha-nvim", commit = "0bb6fc0646bcd1cdb4639737a1cee8d6e08bcc31" } -- greeter to nvim
     use { "folke/which-key.nvim" } -- key bindings
     use { "nvim-treesitter/nvim-treesitter" } -- nice highlighting without overhead
-	use { "lewis6991/gitsigns.nvim" } -- git helpers
-	use { "nvim-telescope/telescope.nvim" } -- fuzzy finder
+    use { "lewis6991/gitsigns.nvim" } -- git helpers
+    use { "nvim-telescope/telescope.nvim" } -- fuzzy finder
     use { "junegunn/vim-easy-align"} -- easiest align tool I've found for an ogre such as myself
 
 	-- Colorschemes
@@ -86,9 +86,9 @@ return packer.startup(function(use)
     use { "jose-elias-alvarez/null-ls.nvim" } -- for formatters and linters
     use { "RRethy/vim-illuminate" } -- highlights other uses of the token inside the script
 
-	-- Automatically set up your configuration after cloning packer.nvim
-	-- Put this at the end after all plugins
-	if PACKER_BOOTSTRAP then
-		require("packer").sync()
-	end
+    -- Automatically set up your configuration after cloning packer.nvim
+    -- Put this at the end after all plugins
+    if PACKER_BOOTSTRAP then
+        require("packer").sync()
+    end
 end)
