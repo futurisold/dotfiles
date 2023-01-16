@@ -39,4 +39,3 @@ require('Comment').setup({
         line = '<leader>//'
     }
 })
-
