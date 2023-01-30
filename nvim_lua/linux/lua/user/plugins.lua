@@ -3,39 +3,39 @@ local fn = vim.fn
 -- Automatically install packer
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
-	PACKER_BOOTSTRAP = fn.system({
-		"git",
-		"clone",
-		"--depth",
-		"1",
-		"https://github.com/wbthomason/packer.nvim",
-		install_path,
-	})
-	print("Installing packer close and reopen Neovim...")
-	vim.cmd([[packadd packer.nvim]])
+    PACKER_BOOTSTRAP = fn.system({
+        "git",
+        "clone",
+        "--depth",
+        "1",
+        "https://github.com/wbthomason/packer.nvim",
+        install_path,
+    })
+    print("Installing packer close and reopen Neovim...")
+    vim.cmd([[packadd packer.nvim]])
 end
 
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
 vim.cmd([[
-  augroup packer_user_config
+    augroup packer_user_config
     autocmd!
     autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup end
+    augroup end
 ]])
 
 -- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
-	return
+    return
 end
 
 -- Have packer use a popup window
 packer.init({
-	display = {
-		open_fn = function()
-			return require("packer.util").float({ border = "rounded" })
-		end,
-	},
+    display = {
+        open_fn = function()
+            return require("packer.util").float({ border = "rounded" })
+        end,
+    },
 })
 
 -- Install your plugins here
@@ -49,7 +49,7 @@ return packer.startup(function(use)
     use { "kyazdani42/nvim-tree.lua" } -- file explorer
     use { "akinsho/bufferline.nvim" } -- nice buffer display on top of the window
     use { "nvim-lualine/lualine.nvim" } -- nice status line display on the bottom of the window
-	use { "moll/vim-bbye" } -- buffer deletion without messing up the layout
+    use { "moll/vim-bbye" } -- buffer deletion without messing up the layout
     use { "akinsho/toggleterm.nvim" } -- toggle multiple terminal instances
     use { "ahmedkhalf/project.nvim" } -- displays the latest used projects
     use { "lewis6991/impatient.nvim", commit = "b842e16ecc1a700f62adb9802f8355b99b52a5a6" } -- caching to speed up Lua modules
@@ -63,15 +63,15 @@ return packer.startup(function(use)
           end
     }
     use { "nvim-treesitter/nvim-treesitter" } -- nice highlighting without overhead
-	use { "lewis6991/gitsigns.nvim" } -- git helpers
-	use { "nvim-telescope/telescope.nvim" } -- fuzzy finder
+    use { "lewis6991/gitsigns.nvim" } -- git helpers
+    use { "nvim-telescope/telescope.nvim" } -- fuzzy finder
     use { "junegunn/vim-easy-align"} -- easiest align tool I've found for an ogre such as myself
 
-	-- Colorschemes
+    -- Colorschemes
     use "ellisonleao/gruvbox.nvim"
     use "folke/tokyonight.nvim"
 
-	-- Completion
+    -- Completion
     use { "hrsh7th/nvim-cmp" } -- completion pkg
     use { "hrsh7th/cmp-buffer" } -- buffer completions
     use { "hrsh7th/cmp-path" } -- path completions
@@ -81,20 +81,20 @@ return packer.startup(function(use)
     use { "saadparwaiz1/cmp_luasnip" } -- cmp utils; snippet completions
     use { "github/copilot.vim" } -- god mode
 
-	-- Snippets
+    -- Snippets
     use { "L3MON4D3/LuaSnip" } --snippet engine
     use { "rafamadriz/friendly-snippets" } -- a bunch of snippets to use
 
-	-- LSP
+    -- LSP
     use { "neovim/nvim-lspconfig" } -- enable LSP
     use { "williamboman/mason.nvim" } -- simple to use language server installer
     use { "williamboman/mason-lspconfig.nvim" } -- bridge between mason & lspconfig
     use { "jose-elias-alvarez/null-ls.nvim" } -- for formatters and linters
     use { "RRethy/vim-illuminate" } -- highlights other uses of the token inside the script
 
-	-- Automatically set up your configuration after cloning packer.nvim
-	-- Put this at the end after all plugins
-	if PACKER_BOOTSTRAP then
-		require("packer").sync()
-	end
+    -- Automatically set up your configuration after cloning packer.nvim
+    -- Put this at the end after all plugins
+    if PACKER_BOOTSTRAP then
+        require("packer").sync()
+    end
 end)
