@@ -46,12 +46,11 @@ return packer.startup(function(use)
     use { "windwp/nvim-autopairs" } -- autopairs; integrates with both cmp and treesitter
     use { "numToStr/Comment.nvim" } -- makes commenting easy
     use { "kyazdani42/nvim-web-devicons" } -- nice icons
-    use { "kyazdani42/nvim-tree.lua" } -- file explorer
+    use { "kyazdani42/nvim-tree.lua", commit="1b13a49f913b58a5f1792ea81c13947a7988db8e" } -- file explorer
     use { "akinsho/bufferline.nvim" } -- nice buffer display on top of the window
     use { "nvim-lualine/lualine.nvim" } -- nice status line display on the bottom of the window
     use { "moll/vim-bbye" } -- buffer deletion without messing up the layout
     use { "akinsho/toggleterm.nvim" } -- toggle multiple terminal instances
-    use { "ahmedkhalf/project.nvim" } -- displays the latest used projects
     use { "lewis6991/impatient.nvim", commit = "b842e16ecc1a700f62adb9802f8355b99b52a5a6" } -- caching to speed up Lua modules
     use { "lukas-reineke/indent-blankline.nvim" } -- indentation guidelines
     use { "goolord/alpha-nvim", commit = "0bb6fc0646bcd1cdb4639737a1cee8d6e08bcc31" } -- greeter to nvim
@@ -70,6 +69,7 @@ return packer.startup(function(use)
     -- Colorschemes
     use "ellisonleao/gruvbox.nvim"
     use "folke/tokyonight.nvim"
+    use "rose-pine/neovim"
 
     -- Completion
     use { "hrsh7th/nvim-cmp" } -- completion pkg
