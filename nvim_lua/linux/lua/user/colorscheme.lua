@@ -15,7 +15,6 @@ if colorscheme == "rose-pine" then
             background = 'base',
             panel = 'surface',
             border = 'highlight_med',
-            comment = 'muted',
             link = 'iris',
             punctuation = 'subtle',
 

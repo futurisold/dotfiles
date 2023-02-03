@@ -46,7 +46,7 @@ return packer.startup(function(use)
     use { "windwp/nvim-autopairs" } -- autopairs; integrates with both cmp and treesitter
     use { "numToStr/Comment.nvim" } -- makes commenting easy
     use { "kyazdani42/nvim-web-devicons" } -- nice icons
-    use { "kyazdani42/nvim-tree.lua", commit="1b13a49f913b58a5f1792ea81c13947a7988db8e" } -- file explorer
+    use { "kyazdani42/nvim-tree.lua" } -- file explorer
     use { "akinsho/bufferline.nvim" } -- nice buffer display on top of the window
     use { "nvim-lualine/lualine.nvim" } -- nice status line display on the bottom of the window
     use { "moll/vim-bbye" } -- buffer deletion without messing up the layout
