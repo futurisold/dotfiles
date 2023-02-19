@@ -94,6 +94,8 @@ return packer.startup(function(use)
 
     -- Obsidian, Tex
     use { "epwalsh/obsidian.nvim" } -- obsidian integration
+    use {'lervag/vimtex'}
+
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
