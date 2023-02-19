@@ -92,10 +92,8 @@ return packer.startup(function(use)
     use { "jose-elias-alvarez/null-ls.nvim" } -- for formatters and linters
     use { "RRethy/vim-illuminate" } -- highlights other uses of the token inside the script
 
-    -- Obsidian, Tex
-    use { "epwalsh/obsidian.nvim" } -- obsidian integration
+    -- Tex
     use {'lervag/vimtex'}
-
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
