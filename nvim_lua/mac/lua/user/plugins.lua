@@ -66,7 +66,7 @@ return packer.startup(function(use)
     use { "nvim-telescope/telescope.nvim",
         requires = {
             { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }, -- fzf extension for telescope find files
-            { 'nvim-telescope/telescope-live-grep-args.nvim' }
+            { 'nvim-telescope/telescope-live-grep-args.nvim' } -- live grep args extension for telescope
         }
     }
     use { "junegunn/vim-easy-align"} -- easiest align tool I've found for an ogre such as myself
@@ -96,6 +96,14 @@ return packer.startup(function(use)
     use { "williamboman/mason-lspconfig.nvim" } -- bridge between mason & lspconfig
     use { "jose-elias-alvarez/null-ls.nvim" } -- for formatters and linters
     use { "RRethy/vim-illuminate" } -- highlights other uses of the token inside the script
+
+    -- Debugger
+    use { "mfussenegger/nvim-dap",
+        requires = {
+            'mfussenegger/nvim-dap-python',
+            'rcarriga/nvim-dap-ui'
+        }
+    }
 
     -- Tex
     use {'lervag/vimtex'}

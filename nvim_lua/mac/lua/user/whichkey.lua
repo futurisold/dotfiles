@@ -96,6 +96,19 @@ local mappings = {
   ["F"] = { "<cmd>Telescope live_grep_args live_grep_args theme=ivy<cr>", "Find Text" }, -- use live_grep with args
   ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
 
+  d = {
+    name = 'Debugger',
+    b = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Toggle Breakpoint" },
+    t = { "<cmd>lua require'dapui'.toggle()<cr>",          "Toggle UI" },
+    c = { "<cmd>lua require'dap'.continue()<cr>",          "Continue" },
+    i = { "<cmd>lua require'dap'.step_into()<cr>",         "Step Into" },
+    o = { "<cmd>lua require'dap'.step_out()<cr>",          "Step Out" },
+    O = { "<cmd>lua require'dap'.step_over()<cr>",         "Step Over" },
+    r = { "<cmd>lua require'dap'.repl.toggle()<cr>",       "Toggle Repl" },
+    s = { "<cmd>lua require'dap'.continue()<cr>",          "Start" },
+    S = { "<cmd>lua require'dap'.close()<cr>",             "Stop" }
+  },
+
   p = {
     name = "Packer",
     c = { "<cmd>PackerCompile<cr>", "Compile" },
@@ -162,13 +175,13 @@ local mappings = {
   s = {
     name = "Search",
     b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-    c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
+    C = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
     h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
     M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
     r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
     R = { "<cmd>Telescope registers<cr>", "Registers" },
     k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
-    C = { "<cmd>Telescope commands<cr>", "Commands" },
+    c = { "<cmd>Telescope commands<cr>", "Commands" },
   },
 
   t = {
