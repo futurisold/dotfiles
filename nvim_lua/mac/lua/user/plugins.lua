@@ -63,7 +63,12 @@ return packer.startup(function(use)
     }
     use { "nvim-treesitter/nvim-treesitter" } -- nice highlighting without overhead
     use { "lewis6991/gitsigns.nvim" } -- git helpers
-    use { "nvim-telescope/telescope.nvim" } -- fuzzy finder
+    use { "nvim-telescope/telescope.nvim",
+        requires = {
+            { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }, -- fzf extension for telescope find files
+            { 'nvim-telescope/telescope-live-grep-args.nvim' }
+        }
+    }
     use { "junegunn/vim-easy-align"} -- easiest align tool I've found for an ogre such as myself
 
     -- Colorschemes

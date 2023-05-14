@@ -87,10 +87,27 @@ telescope.setup {
     -- builtin picker
   },
   extensions = {
-    -- Your extension configuration goes here:
-    -- extension_name = {
-    --   extension_config_key = value,
-    -- }
-    -- please take a look at the readme of the extension you want to configure
+    fzf = {
+        fuzzy = false,                    -- false will only do exact matching
+        override_generic_sorter = true,  -- override the generic sorter
+        override_file_sorter = true,     -- override the file sorter
+        case_mode = "respect_case",        -- or "ignore_case" or "respect_case"
+    },
+    live_grep_args = {
+      vimgrep_arguments = {
+        'rg',
+        '--color=never',
+        '--no-heading',
+        '--with-filename',
+        '--line-number',
+        '--column',
+        '--case-sensitive',
+        '--word-regexp'
+      },
+    },
   },
 }
+
+-- Load fzf
+telescope.load_extension('fzf')
+telescope.load_extension('live_grep_args')
