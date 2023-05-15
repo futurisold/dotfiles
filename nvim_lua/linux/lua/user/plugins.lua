@@ -16,12 +16,12 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
-vim.cmd([[
-    augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
-    augroup end
-]])
+-- vim.cmd([[
+--     augroup packer_user_config
+--     autocmd!
+--     autocmd BufWritePost plugins.lua source <afile> | PackerSync
+--     augroup end
+-- ]])
 
 -- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
@@ -47,7 +47,7 @@ return packer.startup(function(use)
     use { "numToStr/Comment.nvim" } -- makes commenting easy
     use { "kyazdani42/nvim-web-devicons" } -- nice icons
     use { "kyazdani42/nvim-tree.lua" } -- file explorer
-    use { "akinsho/bufferline.nvim" } -- nice buffer display on top of the window
+    use { 'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons' } -- nice buffer display on top of the window
     use { "nvim-lualine/lualine.nvim" } -- nice status line display on the bottom of the window
     use { "moll/vim-bbye" } -- buffer deletion without messing up the layout
     use { "akinsho/toggleterm.nvim" } -- toggle multiple terminal instances
@@ -63,7 +63,12 @@ return packer.startup(function(use)
     }
     use { "nvim-treesitter/nvim-treesitter" } -- nice highlighting without overhead
     use { "lewis6991/gitsigns.nvim" } -- git helpers
-    use { "nvim-telescope/telescope.nvim" } -- fuzzy finder
+    use { "nvim-telescope/telescope.nvim",
+        requires = {
+            { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }, -- fzf extension for telescope find files
+            { 'nvim-telescope/telescope-live-grep-args.nvim' } -- live grep args extension for telescope
+        }
+    }
     use { "junegunn/vim-easy-align"} -- easiest align tool I've found for an ogre such as myself
 
     -- Colorschemes
@@ -92,6 +97,12 @@ return packer.startup(function(use)
     use { "jose-elias-alvarez/null-ls.nvim" } -- for formatters and linters
     use { "RRethy/vim-illuminate" } -- highlights other uses of the token inside the script
 
+    -- Debugger
+    use { "mfussenegger/nvim-dap",
+        requires = {
+            'rcarriga/nvim-dap-ui'
+        }
+    }
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if PACKER_BOOTSTRAP then

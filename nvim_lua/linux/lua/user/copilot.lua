@@ -9,7 +9,8 @@ vim.g.copilot_filetypes = {
     markdown=true,
     html=true,
     css=true,
-    lua=true
+    lua=true,
+    tex=true,
 }
 
 vim.cmd[[imap <silent><script><expr> <leader><CR> copilot#Accept("\<CR>")]]
