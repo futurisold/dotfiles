@@ -43,6 +43,9 @@ dap.configurations.python = {
 dap.listeners.after.event_initialized["dapui_config"] = function()
   dapui.open()
 end
+dap.listeners.after.event_exited["dapui_config"] = function()
+  dapui.close()
+end
 
 vim.fn.sign_define("DapBreakpoint", {
   text = "",
