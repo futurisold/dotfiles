@@ -22,4 +22,3 @@ vim.g.vimtex_syntax_conceal = {
     sections = 0,
     styles = 1,
 }
-

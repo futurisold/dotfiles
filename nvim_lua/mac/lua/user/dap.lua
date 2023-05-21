@@ -23,16 +23,19 @@ end
 dap.adapters.python = {
   type = 'executable',
   command = get_python_path(),
-  args = { '-m', 'debugpy.adapter' }
+  args = { '-m', 'debugpy.adapter' },
+  options = {
+    source_filetype = 'python'
+  }
 }
 
 dap.configurations.python = {
     {
     -- The first three options are required by nvim-dap
-    type = 'python',
-    request = 'launch',
-    name = 'Launch file',
-    program = '${file}',
+    type = 'python';
+    request = 'launch';
+    name = 'Launch file';
+    program = '${file}';
     pythonPath = get_python_path()
     }
 }

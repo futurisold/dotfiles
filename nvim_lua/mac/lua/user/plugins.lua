@@ -47,13 +47,13 @@ return packer.startup(function(use)
     use { "numToStr/Comment.nvim" } -- makes commenting easy
     use { "kyazdani42/nvim-web-devicons" } -- nice icons
     use { "kyazdani42/nvim-tree.lua" } -- file explorer
-    use { "akinsho/bufferline.nvim" } -- nice buffer display on top of the window
+    use { 'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons' } -- nice buffer display on top of the window
     use { "nvim-lualine/lualine.nvim" } -- nice status line display on the bottom of the window
     use { "moll/vim-bbye" } -- buffer deletion without messing up the layout
     use { "akinsho/toggleterm.nvim" } -- toggle multiple terminal instances
-    use { "lewis6991/impatient.nvim", commit = "b842e16ecc1a700f62adb9802f8355b99b52a5a6" } -- caching to speed up Lua modules
+    use { "lewis6991/impatient.nvim" } -- caching to speed up Lua modules
     use { "lukas-reineke/indent-blankline.nvim" } -- indentation guidelines
-    use { "goolord/alpha-nvim", commit = "0bb6fc0646bcd1cdb4639737a1cee8d6e08bcc31" } -- greeter to nvim
+    use { "goolord/alpha-nvim" } -- greeter to nvim
     use { "folke/which-key.nvim" } -- key bindings
     use { "folke/todo-comments.nvim",  -- support for TODO, FIXME, etc
           requires = "nvim-lua/plenary.nvim",
@@ -70,6 +70,7 @@ return packer.startup(function(use)
         }
     }
     use { "junegunn/vim-easy-align"} -- easiest align tool I've found for an ogre such as myself
+    use { "roobert/search-replace.nvim", require("search-replace").setup() }
 
     -- Colorschemes
     use "ellisonleao/gruvbox.nvim"
@@ -104,8 +105,8 @@ return packer.startup(function(use)
         }
     }
 
-    -- Tex
-    use {'lervag/vimtex'}
+    -- LaTeX
+    use { "lervag/vimtex" }
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
