@@ -195,6 +195,15 @@ local n_mappings = {
         o = { "<cmd>SearchReplaceSingleBufferOpen<cr>",  "[o]pen" },
         e = { "<cmd>SearchReplaceSingleBufferCExpr<cr>", "[e]xpr" },
         f = { "<cmd>SearchReplaceSingleBufferCFile<cr>", "[f]ile" },
+    },
+
+    x = {
+        name = "LaTeX",
+        a = { "<cmd>VimtexCompile<cr>", "Start compiler in continuous mode" },
+        s = { "<cmd>VimtexStop<cr>", "Stop compiler" },
+        c = { "<cmd>VimtexCompileSS<cr>", "Compile" },
+        e = { "<cmd>VimtexErrors<cr>", "Errors" },
+        r = { "<cmd>VimtexReload<cr>", "Reload plugin" }
     }
 }
 
