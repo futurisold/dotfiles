@@ -11,7 +11,7 @@ dconf load /org/gnome/terminal/legacy/profiles:/ < /path/to/where/you/saved/your
     <img alt="palette" src="./palette.png"/>
 </p>
 
-- fonts: `SF Mono Semibold 14 pt.` | `Menlo Regular 13 pt.` | `Ubuntu Mono Regular 11 pt.`
+- fonts: `Iosevka Nerd Font Mono Regular 16`
 
 ## Python
 * [miniconda](https://docs.conda.io/en/latest/miniconda.html)

@@ -70,7 +70,11 @@ return packer.startup(function(use)
         }
     }
     use { "junegunn/vim-easy-align"} -- easiest align tool I've found for an ogre such as myself
-    use { "roobert/search-replace.nvim", require("search-replace").setup() }
+    use { "roobert/search-replace.nvim",
+          config = function()
+          require("search-replace").setup()
+        end
+    }
 
     -- Colorschemes
     use "ellisonleao/gruvbox.nvim"
