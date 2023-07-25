@@ -20,3 +20,6 @@ require "user.autocommands"
 require "user.copilot"
 require "user.vimtex"
 require "user.dap"
+
+-- Load after directory configurations
+require("user.after.lsp")
