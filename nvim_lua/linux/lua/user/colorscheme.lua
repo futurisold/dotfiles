@@ -38,7 +38,7 @@ if colorscheme == "rose-pine" then
         -- Change specific vim highlight groups
         highlight_groups = {
             ColorColumn = { bg = 'rose' },
-            Comment = { fg = 'muted', style = 'italic' },
+            Comment = { fg = 'muted', italic = true },
         }
     })
 end

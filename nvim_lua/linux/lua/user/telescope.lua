@@ -88,22 +88,10 @@ telescope.setup {
   },
   extensions = {
     fzf = {
-        fuzzy = false,                    -- false will only do exact matching
+        fuzzy = false,                   -- false will only do exact matching
         override_generic_sorter = true,  -- override the generic sorter
         override_file_sorter = true,     -- override the file sorter
-        case_mode = "respect_case",        -- or "ignore_case" or "respect_case"
-    },
-    live_grep_args = {
-      vimgrep_arguments = {
-        'rg',
-        '--color=never',
-        '--no-heading',
-        '--with-filename',
-        '--line-number',
-        '--column',
-        '--case-sensitive',
-        '--word-regexp'
-      },
+        case_mode = "respect_case",      -- or "ignore_case" or "respect_case"
     },
   },
 }
