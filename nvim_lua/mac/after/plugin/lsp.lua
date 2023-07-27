@@ -1,5 +1,36 @@
 local lsp = require("lsp-zero")
 
+lsp.preset("recommended")
+lsp.ensure_installed({
+    "lua_ls",
+    "pyright",
+    "ruff_lsp",
+})
+lsp.set_sign_icons({
+    error = '✘',
+    warn = '▲',
+    hint = '',
+    info = ''
+})
+local on_attach = function(client, bufnr)
+    local opts = { buffer = bufnr, remap = false, noremap = true, silent = true }
+    vim.keymap.set("n", "gD", function() vim.lsp.buf.declaration() end, opts)
+    vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
+    vim.keymap.set("n", "K",  function() vim.lsp.buf.hover() end, opts)
+    vim.keymap.set("n", "gI", function() vim.lsp.buf.implementation() end, opts)
+    vim.keymap.set("n", "gr", function() vim.lsp.buf.references() end, opts)
+    vim.keymap.set("n", "gl", function() vim.diagnostic.open_float() end, opts)
+    vim.keymap.set("n", "<leader>lf", function() vim.lsp.buf.format { async = true } end, opts)
+    vim.keymap.set("n", "<leader>li", function() vim.cmd("LspInfo") end, opts)
+    vim.keymap.set("n", "<leader>lI", function() vim.cmd("LspInstallInfo") end, opts)
+    vim.keymap.set("n", "<leader>la", function() vim.lsp.buf.code_action() end, opts)
+    vim.keymap.set("n", "<leader>lj", function() vim.diagnostic.goto_next({ buffer = 0 }) end, opts)
+    vim.keymap.set("n", "<leader>lk", function() vim.diagnostic.goto_prev({ buffer = 0 }) end, opts)
+    vim.keymap.set("n", "<leader>lr", function() vim.lsp.buf.rename() end, opts)
+    vim.keymap.set("n", "<leader>ls", function() vim.lsp.buf.signature_help() end, opts)
+    vim.keymap.set("n", "<leader>lq", function() vim.diagnostic.setloclist() end, opts)
+end
+
 -- Lua
 require('lspconfig').lua_ls.setup {
     settings = {
@@ -27,41 +58,26 @@ require('lspconfig').lua_ls.setup {
 
 -- Python
 require('lspconfig').ruff_lsp.setup {
+    cmd = { "/Users/xmachine/.local/share/nvim/mason/bin/ruff-lsp" },
+    on_attach = on_attach,
     init_options = {
         settings = {
-            args = { "--ignore", "E501" }
+            args = { "--ignore", "E501" },
         }
     }
 }
 
-lsp.set_sign_icons({
-    error = '✘',
-    warn = '▲',
-    hint = '',
-    info = ''
+require('lspconfig').pyright.setup({
+    settings = {
+        python = {
+            analysis = {
+                typeCheckingMode = "off",
+            },
+        },
+    },
 })
 
-lsp.suggest_lsp_servers = false
-
-lsp.on_attach(function()
-    local opts = { remap = false }
-    vim.keymap.set("n", "gD", function() vim.lsp.buf.declaration() end, opts)
-    vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-    vim.keymap.set("n", "K",  function() vim.lsp.buf.hover() end, opts)
-    vim.keymap.set("n", "gI", function() vim.lsp.buf.implementation() end, opts)
-    vim.keymap.set("n", "gr", function() vim.lsp.buf.references() end, opts)
-    vim.keymap.set("n", "gl", function() vim.diagnostic.open_float() end, opts)
-    vim.keymap.set("n", "<leader>lf", function() vim.lsp.buf.format { async = true } end, opts)
-    vim.keymap.set("n", "<leader>li", function() vim.cmd("LspInfo") end, opts)
-    vim.keymap.set("n", "<leader>lI", function() vim.cmd("LspInstallInfo") end, opts)
-    vim.keymap.set("n", "<leader>la", function() vim.lsp.buf.code_action() end, opts)
-    vim.keymap.set("n", "<leader>lj", function() vim.diagnostic.goto_next({ buffer = 0 }) end, opts)
-    vim.keymap.set("n", "<leader>lk", function() vim.diagnostic.goto_prev({ buffer = 0 }) end, opts)
-    vim.keymap.set("n", "<leader>lr", function() vim.lsp.buf.rename() end, opts)
-    vim.keymap.set("n", "<leader>ls", function() vim.lsp.buf.signature_help() end, opts)
-    vim.keymap.set("n", "<leader>lq", function() vim.diagnostic.setloclist() end, opts)
-end)
-
+lsp.on_attach = on_attach
 lsp.setup()
 
 vim.diagnostic.config({
