@@ -58,7 +58,7 @@ require('lspconfig').lua_ls.setup {
 
 -- Python
 require('lspconfig').ruff_lsp.setup {
-    cmd = { "/Users/xmachine/.local/share/nvim/mason/bin/ruff-lsp" },
+    -- cmd = { "[UPDATE_HERE].local/share/nvim/mason/bin/ruff-lsp" }, -- @NOTE: might be necessary to update this path if autostart doesn't work (default path provided)
     on_attach = on_attach,
     init_options = {
         settings = {
