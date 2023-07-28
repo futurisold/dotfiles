@@ -1,4 +1,4 @@
-local colorscheme = "rose-pine"
+local colorscheme = "tokyonight"
 
 if colorscheme == "rose-pine" then
     require('rose-pine').setup({
@@ -32,7 +32,6 @@ if colorscheme == "rose-pine" then
                 h6 = 'foam',
             }
             -- or set all headings at once
-            -- headings = 'subtle'
         },
 
         -- Change specific vim highlight groups
@@ -43,8 +42,5 @@ if colorscheme == "rose-pine" then
     })
 end
 
-local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
-if not status_ok then
-  return
-end
+vim.cmd.colorscheme(colorscheme)
 
