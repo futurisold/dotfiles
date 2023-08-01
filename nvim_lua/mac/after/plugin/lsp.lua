@@ -1,9 +1,8 @@
 local lsp = require("lsp-zero")
 
-lsp.preset("recommended")
 lsp.ensure_installed({
     "lua_ls",
-    "pyright",
+    "jedi_language_server",
     "ruff_lsp",
 })
 lsp.set_sign_icons({
@@ -58,24 +57,31 @@ require('lspconfig').lua_ls.setup {
 
 -- Python
 require('lspconfig').ruff_lsp.setup {
-    -- cmd = { "[UPDATE_HERE].local/share/nvim/mason/bin/ruff-lsp" }, -- @NOTE: might be necessary to update this path if autostart doesn't work (default path provided)
     on_attach = on_attach,
     init_options = {
         settings = {
-            args = { "--ignore", "E501" },
+            args = {
+                "--ignore", "E501", -- line too long
+                "--ignore", "F403", -- 'from module import *' used; unable to detect undefined names
+                "--ignore", "F405", -- 'module' may be undefined, or defined from star imports: module
+            },
         }
     }
 }
 
-require('lspconfig').pyright.setup({
+require("lspconfig").jedi_language_server.setup{
+    on_attach = on_attach,
     settings = {
-        python = {
-            analysis = {
-                typeCheckingMode = "off",
+        jedi = {
+            completion = {
+                disable = true,
             },
-        },
-    },
-})
+            diagnostics = {
+                enable = false,
+            }
+        }
+    }
+}
 
 lsp.on_attach = on_attach
 lsp.setup()
