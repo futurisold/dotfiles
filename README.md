@@ -14,15 +14,13 @@ dconf load /org/gnome/terminal/legacy/profiles:/ < /path/to/where/you/saved/your
 - fonts: `Iosevka Nerd Font Mono Regular 16`
 
 ## Python
-* [miniconda](https://docs.conda.io/en/latest/miniconda.html)
-* New Nvim config (Lua):
-    * [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig)
-    * [mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim)
-* Old Nvim config (Vim Script):
-    * [coc](https://github.com/neoclide/coc.nvim)
-        * [coc-pyright](https://github.com/fannheyward/coc-pyright)
-        * [coc-json](https://github.com/neoclide/coc-json)
+Currently, I'm using the following setup for Python development:
+- [miniconda](https://docs.conda.io/en/latest/miniconda.html) for package management
+- `jedi-language-server` ([link](https://github.com/pappasam/jedi-language-server)) for `goto definition` and `hover` functionality, and `ruff-lsp` ([link](https://github.com/astral-sh/ruff-lsp)) for `diagnostics` and `formatting`
+- DAP for my debugger, with `nvim-dap-python` ([link](https://github.com/mfussenegger/nvim-dap-python)) as my Python adapter
+- [Lazygit](https://github.com/jesseduffield/lazygit)
 
 # References:
 - [chrisatmachine](https://github.com/LunarVim/Neovim-from-scratch/tree/master)
 - [fisadev](https://vim.fisadev.com/)
+- [theprimeagen](https://github.com/ThePrimeagen/.dotfiles)
