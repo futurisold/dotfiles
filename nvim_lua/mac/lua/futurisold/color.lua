@@ -1,4 +1,4 @@
-local colorscheme = "tokyonight"
+local colorscheme = "tokyonight-moon"
 
 if colorscheme == "rose-pine" then
     require('rose-pine').setup({
@@ -43,4 +43,3 @@ if colorscheme == "rose-pine" then
 end
 
 vim.cmd.colorscheme(colorscheme)
-
