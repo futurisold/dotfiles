@@ -12,7 +12,12 @@ return require('packer').startup(function(use)
         }
     }
     use { "folke/which-key.nvim" } -- fast key bindings
-    use { "kyazdani42/nvim-tree.lua" } -- file explorer
+    use {
+        'nvim-tree/nvim-tree.lua',
+        requires = {
+            'nvim-tree/nvim-web-devicons',
+        },
+    }
     use { "windwp/nvim-autopairs" } -- autopairs; integrates with both cmp and treesitter
     use { "numToStr/Comment.nvim" } -- makes commenting easy
     use { "folke/todo-comments.nvim",  -- support for TODO, FIXME, etc
@@ -45,6 +50,8 @@ return require('packer').startup(function(use)
     use "ellisonleao/gruvbox.nvim"
     use "folke/tokyonight.nvim"
     use "rose-pine/neovim"
+    use { "catppuccin/nvim", as = "catppuccin" }
+
 
     -- LSP
     use {

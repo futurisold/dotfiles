@@ -32,6 +32,7 @@ end
 
 -- Lua
 require('lspconfig').lua_ls.setup {
+    on_attach = on_attach,
     settings = {
         Lua = {
             runtime = {
@@ -57,6 +58,7 @@ require('lspconfig').lua_ls.setup {
 
 -- Python
 require('lspconfig').ruff_lsp.setup {
+    on_attach = on_attach,
     init_options = {
         settings = {
             args = {
@@ -69,6 +71,7 @@ require('lspconfig').ruff_lsp.setup {
 }
 
 require("lspconfig").jedi_language_server.setup{
+    on_attach = on_attach,
     settings = {
         jedi = {
             completion = {
@@ -81,7 +84,6 @@ require("lspconfig").jedi_language_server.setup{
     }
 }
 
-lsp.on_attach = on_attach
 lsp.setup()
 
 vim.diagnostic.config({
