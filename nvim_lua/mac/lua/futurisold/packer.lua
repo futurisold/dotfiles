@@ -21,10 +21,7 @@ return require('packer').startup(function(use)
     use { "windwp/nvim-autopairs" } -- autopairs; integrates with both cmp and treesitter
     use { "numToStr/Comment.nvim" } -- makes commenting easy
     use { "folke/todo-comments.nvim",  -- support for TODO, FIXME, etc
-        requires = "nvim-lua/plenary.nvim",
-        config = function()
-            require("todo-comments").setup {}
-        end
+        dependencies = "nvim-lua/plenary.nvim",
     }
     use { 'akinsho/bufferline.nvim',
         tag = "*",
