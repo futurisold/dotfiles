@@ -18,7 +18,7 @@
     | Green   | Green (Munsell)      | `#00a877` | <p align="center"> <img src="./assets/00a877.png" alt="Green (Munsell)" style="width:35%; height:35%;" />      </p> |
     | Yellow  | Deep Lemon           | `#f5c417` | <p align="center"> <img src="./assets/f5c417.png" alt="Deep Lemon" style="width:35%; height:35%;" />           </p> |
     | Blue    | Electric Ultramarine | `#3b0aff` | <p align="center"> <img src="./assets/3b0aff.png" alt="Electric Ultramarine" style="width:35%; height:35%;" /> </p> |
-    | Magenta | Red-Violet (Crayola) | `#b64b8a` | <p align="center"> <img src="./assets/b64b8a.png" alt="Red-Violet (Crayola)" style="width:35%; height:35%;" /> </p> |
+    | Magenta | Jazzberry Jam        | `#a50b5e` | <p align="center"> <img src="./assets/a50b5e.png" alt="Jazzberry Jam" style="width:35%; height:35%;" />        </p> |
     | Cyan    | Zomp                 | `#009698` | <p align="center"> <img src="./assets/009698.png" alt="Zomp" style="width:35%; height:35%;" />                 </p> |
 
 ## Python
