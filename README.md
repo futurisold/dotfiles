@@ -1,5 +1,5 @@
 <p align="center">
-    <img alt="neovim" src="./assets/neovim.png"/ style="width:75%;height:75%;">
+    <img alt="neovim" src="./assets/neovim.png"/ style="width:75%; height:75%;"/>
 </p>
 
 # What I use:
@@ -12,7 +12,7 @@
 - palette:
     | Color   | Name                 | Hex       | Render                                       |
     |---------|----------------------|-----------|----------------------------------------------|
-    | Black   | Raisin Black         | `#212121` | ![Raisin Black](./assets/212121.png)         |
+    | Black   | Raisin Black         | `#212121` | <img src="./assets/212121.png" alt="Raisin Black" style="width:25%; height:25%;" /> |
     | White   | Cultured             | `#f5f5f5` | ![Cultured](./assets/f5f5f5.png)             |
     | Red     | Sweet Brown          | `#a93628` | ![Sweet Brown](./assets/a93628.png)          |
     | Green   | Green (Munsell)      | `#00a877` | ![Green (Munsell)](./assets/00a877.png)      |
