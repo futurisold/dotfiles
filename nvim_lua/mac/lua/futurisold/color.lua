@@ -1,4 +1,6 @@
-local colorscheme = "tokyonight-moon"
+-- local colorscheme = "tokyonight-moon"
+local colorscheme = "rose-pine"
+local transparent = true
 
 if colorscheme == "rose-pine" then
     require('rose-pine').setup({
@@ -43,3 +45,13 @@ if colorscheme == "rose-pine" then
 end
 
 vim.cmd.colorscheme(colorscheme)
+
+if transparent then
+    vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+    vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+    vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
+    vim.cmd[[hi NvimTreeNormal guibg=NONE ctermbg=NONE]]
+    vim.cmd[[hi NvimTreeNormalNC guibg=NONE ctermbg=NONE]]
+end
+
+
