@@ -8,7 +8,7 @@
 dconf load /org/gnome/terminal/legacy/profiles:/ < /path/to/where/you/saved/your/gnome-terminal-profiles.dconf`
 ```
 <p>
-    <img alt="palette" src="./palette.png"/>
+    <img alt="palette" src="./assets/palette.png"/>
 </p>
 
 - fonts: `Iosevka Nerd Font Mono Regular 16`
