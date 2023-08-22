@@ -41,3 +41,4 @@ luac.out
 
 # Json
 *.json
+.DS_Store

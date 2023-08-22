@@ -1,3 +1,7 @@
+<p align="center">
+    <img alt="neovim" src="./assets/neovim.png"/ style="width:75%;height:75%;">
+</p>
+
 # What I use:
 
 ## General
@@ -6,16 +10,16 @@
 - terminal: [xcfe4-term](https://docs.xfce.org/apps/terminal/start) on Linux, [iTerm2](https://iterm2.com/) on MacOS
 - fonts: `Iosevka Nerd Font Mono Medium 16`
 - palette:
-    | Color   | Hex       | Render                                       |
-    |---------|-----------|----------------------------------------------|
-    | Black   | `#212121` | ![Raisin Black](./assets/212121.png)         |
-    | White   | `#f5f5f5` | ![Cultured](./assets/f5f5f5.png)             |
-    | Red     | `#a93628` | ![Sweet Brown](./assets/a93628.png)          |
-    | Green   | `#00a877` | ![Green (Munsell)](./assets/00a877)          |
-    | Yellow  | `#f5c417` | ![Deep Lemon](./assets/f5c417.png)           |
-    | Blue    | `#3b0aff` | ![Electric Ultramarine](./assets/3b0aff.png) |
-    | Magenta | `#b64b8a` | ![Red-Violet (Crayola)](./assets/b64b8a.png) |
-    | Cyan    | `#479a9d` | ![Zomp](./assets/479a9d.png)                 |
+    | Color   | Name                 | Hex       | Render                                       |
+    |---------|----------------------|-----------|----------------------------------------------|
+    | Black   | Raisin Black         | `#212121` | ![Raisin Black](./assets/212121.png)         |
+    | White   | Cultured             | `#f5f5f5` | ![Cultured](./assets/f5f5f5.png)             |
+    | Red     | Sweet Brown          | `#a93628` | ![Sweet Brown](./assets/a93628.png)          |
+    | Green   | Green (Munsell)      | `#00a877` | ![Green (Munsell)](./assets/00a877.png)      |
+    | Yellow  | Deep Lemon           | `#f5c417` | ![Deep Lemon](./assets/f5c417.png)           |
+    | Blue    | Electric Ultramarine | `#3b0aff` | ![Electric Ultramarine](./assets/3b0aff.png) |
+    | Magenta | Red-Violet (Crayola) | `#b64b8a` | ![Red-Violet (Crayola)](./assets/b64b8a.png) |
+    | Cyan    | Zomp                 | `#009698` | ![Zomp](./assets/009698.png)                 |
 
 ## Python
 Currently, I'm using the following setup for Python development:
