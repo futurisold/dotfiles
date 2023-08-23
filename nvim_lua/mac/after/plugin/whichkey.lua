@@ -210,8 +210,8 @@ local n_mappings = {
 local v_mappings = {
     r = {
         name = "Query/Replace",
-        w = { "<cmd>SearchReplaceWithinVisualSelection<cr>",       "Charwise" },
-        c = { "<cmd>SearchReplaceWithinVisualSelectionCWord<cr>",  "Blockwise/Linewise" },
+        c = { "<cmd>SearchReplaceSingleBufferVisualSelection<cr>", "Charwise" },
+        b = { "<cmd>SearchReplaceWithinVisualSelectionCWord<cr>",  "Blockwise/Linewise" },
     }
 }
 
