@@ -21,6 +21,8 @@
     | Magenta | Jazzberry Jam        | `#a50b5e` | <p align="center"> <img src="./assets/a50b5e.png" alt="Jazzberry Jam" style="width:35%; height:35%;" />        </p> |
     | Cyan    | Zomp                 | `#009698` | <p align="center"> <img src="./assets/009698.png" alt="Zomp" style="width:35%; height:35%;" />                 </p> |
 
+- to keep track of my working setup, I wrote a minimalist python pkg called [neoplugwatch](https://github.com/futurisold/neoplugwatch/tree/main)
+
 ## Python
 Currently, I'm using the following setup for Python development:
 - [miniconda](https://docs.conda.io/en/latest/miniconda.html) for package management
