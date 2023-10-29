@@ -32,7 +32,7 @@ return require('packer').startup(function(use)
     use { "moll/vim-bbye" } -- buffer deletion without messing up the layout
     use { "akinsho/toggleterm.nvim" } -- toggle multiple terminal instances
     use { "lewis6991/impatient.nvim" } -- caching to speed up Lua modules
-    use { "lukas-reineke/indent-blankline.nvim" } -- indentation guidelines
+    use { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} } -- indentation guidelines
     use { "goolord/alpha-nvim" } -- greeter to nvim
     use { "lewis6991/gitsigns.nvim" } -- git helpers
     use { "junegunn/vim-easy-align"} -- easiest align tool I've found for an ogre such as myself
@@ -53,7 +53,7 @@ return require('packer').startup(function(use)
     -- LSP
     use {
         'VonHeikemen/lsp-zero.nvim',
-        branch = 'v2.x',
+        branch = 'v2.x', -- @TODO: 3.x is out but needs migration
         requires = {
             {'neovim/nvim-lspconfig'},
             {'williamboman/mason.nvim'},

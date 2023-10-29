@@ -80,13 +80,6 @@ local n_mappings = {
     ["q"] = { "<cmd>q!<cr>", "Quit" },
     ["c"] = { "<cmd>Bdelete!<cr>", "Close Buffer" },
     ["h"] = { "<cmd>nohlsearch<cr>", "No Highlight" },
-    ["f"] = {
-        "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-        "Find files",
-    },
-    ["F"] = { "<cmd>Telescope live_grep_args live_grep_args theme=ivy<cr>", "Find Text" }, -- use live_grep with args
-    ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
-
     d = {
         name = 'Debugger',
         b = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Toggle Breakpoint" },
@@ -166,14 +159,15 @@ local n_mappings = {
 
     s = {
         name = "Search",
-        b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
         C = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
-        h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
+        h = { "<cmd>Telescope help_tags<cr>", "Help Tags" },
         M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
         r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
         R = { "<cmd>Telescope registers<cr>", "Registers" },
         k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
         c = { "<cmd>Telescope commands<cr>", "Commands" },
+        f = { "<cmd>Telescope find_files<cr>", "Find files" },
+        g = { "<cmd>Telescope live_grep_args<cr>", "Find text with rg" },
     },
 
     t = {

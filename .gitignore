@@ -43,3 +43,6 @@ luac.out
 *.json
 .DS_Store
 assets/.DS_Store
+
+# Other
+reports

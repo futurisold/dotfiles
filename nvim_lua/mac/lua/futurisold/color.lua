@@ -1,3 +1,4 @@
+-- local colorscheme = "tokyonight-moon"
 local colorscheme = "rose-pine"
 local transparent = true
 
@@ -52,4 +53,5 @@ if transparent then
     vim.cmd[[hi NvimTreeNormal guibg=NONE ctermbg=NONE]]
     vim.cmd[[hi NvimTreeNormalNC guibg=NONE ctermbg=NONE]]
 end
+
 

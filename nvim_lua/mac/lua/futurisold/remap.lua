@@ -36,7 +36,7 @@ keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
 keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 
 -- Insert --
-keymap("i", "§§", "<ESC>", opts)
+keymap("i", "``", "<ESC>", opts)
 
 -- Visual --
 -- Stay in indent mode
