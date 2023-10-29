@@ -1,4 +1,3 @@
--- local colorscheme = "tokyonight-moon"
 local colorscheme = "rose-pine"
 local transparent = true
 
