@@ -1,5 +1,7 @@
 local lsp = require("lsp-zero")
 
+use_ruff = false
+
 lsp.ensure_installed({
     "lua_ls",
     "jedi_language_server",
@@ -57,18 +59,21 @@ require('lspconfig').lua_ls.setup {
 }
 
 -- Python
-require('lspconfig').ruff_lsp.setup {
-    on_attach = on_attach,
-    init_options = {
-        settings = {
-            args = {
-                "--ignore", "E501", -- line too long
-                "--ignore", "F403", -- 'from module import *' used; unable to detect undefined names
-                "--ignore", "F405", -- 'module' may be undefined, or defined from star imports: module
-            },
+if use_ruff then
+    require('lspconfig').ruff_lsp.setup {
+        on_attach = on_attach,
+        init_options = {
+            settings = {
+                args = {
+                    "--ignore", "E501", -- line too long
+                    "--ignore", "F403", -- 'from module import *' used; unable to detect undefined names
+                    "--ignore", "F405", -- 'module' may be undefined, or defined from star imports: module
+                    "--ignore", "E701", -- multiple statements on one line (colon)
+                },
+            }
         }
     }
-}
+end
 
 require("lspconfig").jedi_language_server.setup{
     on_attach = on_attach,

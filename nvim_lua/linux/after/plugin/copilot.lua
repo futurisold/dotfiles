@@ -11,6 +11,7 @@ vim.g.copilot_filetypes = {
     css=true,
     lua=true,
     tex=true,
+    sh=true,
 }
 
 vim.cmd[[imap <silent><script><expr> <leader><CR> copilot#Accept("\<CR>")]]

@@ -5,7 +5,7 @@ return require('packer').startup(function(use)
     use "wbthomason/packer.nvim"
     use "nvim-lua/plenary.nvim" -- useful lua functions used by lots of plugins
     use { "nvim-treesitter/nvim-treesitter" } -- nice highlighting without overhead
-    use { "nvim-telescope/telescope.nvim",
+    use { "nvim-telescope/telescope.nvim", branch = "0.1.x",
         requires = {
             { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }, -- fzf extension for telescope find files
             { 'nvim-telescope/telescope-live-grep-args.nvim' } -- live grep args extension for telescope
@@ -32,9 +32,9 @@ return require('packer').startup(function(use)
     use { "moll/vim-bbye" } -- buffer deletion without messing up the layout
     use { "akinsho/toggleterm.nvim" } -- toggle multiple terminal instances
     use { "lewis6991/impatient.nvim" } -- caching to speed up Lua modules
-    use { "lukas-reineke/indent-blankline.nvim" } -- indentation guidelines
+    use { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} } -- indentation guidelines
     use { "goolord/alpha-nvim" } -- greeter to nvim
-    use { "lewis6991/gitsigns.nvim" } -- git helpers
+    use { "lewis6991/gitsigns.nvim" } -- git helps
     use { "junegunn/vim-easy-align"} -- easiest align tool I've found for an ogre such as myself
     use { "RRethy/vim-illuminate" } -- highlights other uses of the token inside the script
     use { "roobert/search-replace.nvim",
@@ -48,7 +48,7 @@ return require('packer').startup(function(use)
     use "folke/tokyonight.nvim"
     use "rose-pine/neovim"
     use { "catppuccin/nvim", as = "catppuccin" }
-
+    use { 'navarasu/onedark.nvim', priority=1000}
 
     -- LSP
     use {
