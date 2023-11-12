@@ -1,5 +1,6 @@
-local colorscheme = "rose-pine"
-local transparent = true
+local colorscheme = "fluoromachine"
+local transparent = false
+
 
 if colorscheme == "rose-pine" then
     require('rose-pine').setup({
@@ -11,36 +12,26 @@ if colorscheme == "rose-pine" then
         disable_float_background = false,
         disable_italics = true,
 
-        --- @usage string hex value or named color from rosepinetheme.com/palette
-        groups = {
-            background = 'base',
-            panel = 'surface',
-            border = 'highlight_med',
-            link = 'iris',
-            punctuation = 'subtle',
-
-            error = 'love',
-            hint = 'iris',
-            info = 'foam',
-            warn = 'gold',
-
-            headings = {
-                h1 = 'iris',
-                h2 = 'foam',
-                h3 = 'rose',
-                h4 = 'gold',
-                h5 = 'pine',
-                h6 = 'foam',
-            }
-            -- or set all headings at once
-        },
-
-        -- Change specific vim highlight groups
         highlight_groups = {
-            ColorColumn = { bg = 'rose' },
-            Comment = { fg = 'muted', italic = true },
-        }
+                ColorColumn = { bg = 'rose' },
+                Comment = { fg = 'muted', italic = true },
+            }
     })
+end
+
+if colorscheme == "onedark" then
+    require('onedark').setup({
+        style = "darker", -- other values: 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer'
+        })
+end
+
+if colorscheme == "fluoromachine" then
+    require('fluoromachine').setup({
+        glow = true,
+        theme = "retrowave", -- other values: 'fluoromachine', 'retrowave', 'delta'
+        transparent = false, -- other values: 'full', true/false
+        brightness = 0.05,   -- other values: range from 0 -> 1
+        })
 end
 
 vim.cmd.colorscheme(colorscheme)
@@ -52,5 +43,4 @@ if transparent then
     vim.cmd[[hi NvimTreeNormal guibg=NONE ctermbg=NONE]]
     vim.cmd[[hi NvimTreeNormalNC guibg=NONE ctermbg=NONE]]
 end
-
 
