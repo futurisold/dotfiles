@@ -47,8 +47,8 @@ return require('packer').startup(function(use)
     use "ellisonleao/gruvbox.nvim"
     use "folke/tokyonight.nvim"
     use "rose-pine/neovim"
-    use { "catppuccin/nvim", as = "catppuccin" }
-    use { 'navarasu/onedark.nvim', priority=1000}
+    use { 'navarasu/onedark.nvim', priority=1000 }
+    use "maxmx03/fluoromachine.nvim"
 
     -- LSP
     use {
