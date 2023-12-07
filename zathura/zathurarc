@@ -1,0 +1,28 @@
+# Zathura configuration file
+# See man `man zathurarc'
+
+set pages-per-row 1
+
+set scroll-page-aware "true"
+set scroll-full-overlap 0.01
+
+set zoom-min 10
+
+set window-title-basename "true"
+set selection-clipboard "clipboard"
+
+set default-bg "#212121" # Background
+set default-fg "#212121" # Foreground
+set render-loading "true"
+set render-loading-fg "#f5f5f5" # Background
+set render-loading-bg "#212121" # Foreground
+
+set recolor-lightcolor "#212121" # Background
+set recolor-darkcolor  "#f5f5f5" # Foreground
+
+set window-width  1920
+set window-height 1200
+set recolor "true"
+set recolor-keephue "true"
+set sandbox "none"
+set font "inconsolata 16"
