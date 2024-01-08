@@ -1,11 +1,18 @@
 local lsp = require("lsp-zero")
-local use_ruff = false
+local mason = require("mason")
+local mason_lspconfig = require("mason-lspconfig")
 
-lsp.ensure_installed({
-    "lua_ls",
-    "jedi_language_server",
-    "ruff_lsp",
+use_ruff = false
+
+mason.setup({})
+mason_lspconfig.setup({
+    ensure_installed = {
+        "lua_ls",
+        "jedi_language_server",
+        "ruff_lsp",
+    }
 })
+
 lsp.set_sign_icons({
     error = '✘',
     warn = '▲',
