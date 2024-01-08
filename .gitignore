@@ -40,7 +40,6 @@ luac.out
 *.hex
 
 # Json
-*.json
 .DS_Store
 assets/.DS_Store
 
