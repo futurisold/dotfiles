@@ -92,16 +92,25 @@ local n_mappings = {
         s = { "<cmd>lua require'dap'.continue()<cr>",          "Start" },
         S = { "<cmd>lua require'dap'.close()<cr>",             "Stop" }
     },
-
     p = {
-        name = "Packer",
-        c = { "<cmd>PackerCompile<cr>", "Compile" },
-        i = { "<cmd>PackerInstall<cr>", "Install" },
-        s = { "<cmd>PackerSync<cr>", "Sync" },
-        S = { "<cmd>PackerStatus<cr>", "Status" },
-        u = { "<cmd>PackerUpdate<cr>", "Update" },
+        name = "Plugins (lazyvim)",
+        b = { "<cmd>Lazy build<cr>", "Build Plugin" },
+        c = { "<cmd>Lazy check<cr>", "Check for Updates" },
+        l = { "<cmd>Lazy clean<cr>", "Clean Plugins" },
+        r = { "<cmd>Lazy clear<cr>", "Clear Finished Tasks" },
+        d = { "<cmd>Lazy debug<cr>", "Debug Info" },
+        h = { "<cmd>Lazy health<cr>", "Health Check" },
+        m = { "<cmd>Lazy home<cr>", "Plugin List" },
+        i = { "<cmd>Lazy install<cr>", "Install Plugins" },
+        o = { "<cmd>Lazy load<cr>", "Load Plugin" },
+        g = { "<cmd>Lazy log<cr>", "Plugin Log" },
+        p = { "<cmd>Lazy profile<cr>", "Profiling" },
+        e = { "<cmd>Lazy reload<cr>", "Reload Plugin" },
+        s = { "<cmd>Lazy restore<cr>", "Restore Plugin" },
+        y = { "<cmd>Lazy sync<cr>", "Sync Plugins" },
+        u = { "<cmd>Lazy update<cr>", "Update Plugins" },
+        ["%"] = { "<cmd>source ~/.config/nvim/lua/futurisold/plugins.lua <cr>", "" }
     },
-
     g = {
         name = "Git",
         g = { "<cmd>lua _LAZYGIT_TOGGLE()<cr>", "Lazygit" },
