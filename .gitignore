@@ -45,3 +45,5 @@ assets/.DS_Store
 
 # Other
 reports
+scripts/obsidian_backup.py
+assets/client_secret.json
