@@ -15,8 +15,7 @@ local get_python_path = function()
     if conda_env then
         return conda_env .. '/bin/python'
     else
-        -- throw an error if the conda environment does not exist
-        error('CONDA_PREFIX is not set; please activate a conda environment')
+        print('WARNING: `$CONDA_PREFIX` is not set; please activate a conda environment otherwise the `python` dap adapter will not work')
     end
 end
 
@@ -36,7 +35,6 @@ dap.configurations.python = {
         request = 'launch';
         name = 'Launch file';
         program = '${file}';
-        pythonPath = get_python_path()
     }
 }
 
