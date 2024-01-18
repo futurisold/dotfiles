@@ -1,6 +1,7 @@
 local colorscheme = "fluoromachine"
 local transparent = false
 
+
 if colorscheme == "rose-pine" then
     require('rose-pine').setup({
         --- @usage 'main' | 'moon'
@@ -19,8 +20,8 @@ if colorscheme == "rose-pine" then
 end
 
 if colorscheme == "onedark" then
-        require('onedark').setup({
-            style = "deep", -- other values: 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer'
+    require('onedark').setup({
+        style = "darker", -- other values: 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer'
         })
 end
 
@@ -36,7 +37,7 @@ end
 vim.cmd.colorscheme(colorscheme)
 
 if transparent then
-        vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+    vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
     vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
     vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
     vim.cmd[[hi NvimTreeNormal guibg=NONE ctermbg=NONE]]
