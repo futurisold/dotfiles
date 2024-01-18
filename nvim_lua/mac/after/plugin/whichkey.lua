@@ -166,6 +166,12 @@ local n_mappings = {
         },
     },
 
+    o = {
+        name = "Remote (sshfs)",
+        c = { "<cmd>RemoteSSHFSConnect<cr>", "Connect" },
+        d = { "<cmd>RemoteSSHFSDisconnect<cr>", "Disconnect" },
+    },
+
     s = {
         name = "Search",
         b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
