@@ -99,6 +99,7 @@ require("lspconfig").jedi_language_server.setup{
 lsp.setup()
 
 vim.diagnostic.config({
+    signs = false, -- Inline disabled because I hate it; Good thread here: https://github.com/neovim/nvim-lspconfig/issues/662
     virtual_text = false,
     update_in_insert = false,
     underline = false,
