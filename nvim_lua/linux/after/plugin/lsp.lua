@@ -54,6 +54,7 @@ require('lspconfig').lua_ls.setup {
             },
             workspace = {
                 -- Make the server aware of Neovim runtime files
+                checkThirdParty = false, -- Remove annoying popup every time I open a lua file
                 library = vim.api.nvim_get_runtime_file("", true),
             },
             -- Do not send telemetry data containing a randomized but unique identifier
