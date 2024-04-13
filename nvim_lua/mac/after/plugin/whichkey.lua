@@ -221,3 +221,4 @@ local v_opts = {
 which_key.setup(setup)
 which_key.register(n_mappings, n_opts)
 which_key.register(v_mappings, v_opts)
+
