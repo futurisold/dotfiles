@@ -1,4 +1,4 @@
-local colorscheme = "fluoromachine"
+local colorscheme = "rose-pine-main"
 local transparent = false
 
 
