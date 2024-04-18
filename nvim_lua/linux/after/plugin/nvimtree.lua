@@ -1,4 +1,6 @@
-local status_ok, nvim_tree = pcall(require, "nvim-tree")
+local status_ok, nvim_tree   = pcall(require, "nvim-tree")
+local has_devicons, devicons = pcall(require, 'nvim-web-devicons')
+
 if not status_ok then
     return
 end
@@ -71,4 +73,10 @@ nvim_tree.setup({
     dotfiles = true,
   },
 })
+
+if has_devicons then
+  devicons.set_icon({
+    toml = { icon = "", color = "#6d8086", name = "Toml" }
+  })
+end
 

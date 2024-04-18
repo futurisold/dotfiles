@@ -28,7 +28,7 @@ end
 if colorscheme == "fluoromachine" then
     require('fluoromachine').setup({
         glow = true,
-        theme = "retrowave", -- other values: 'fluoromachine', 'retrowave', 'delta'
+        theme = "delta", -- other values: 'fluoromachine', 'retrowave', 'delta'
         transparent = false, -- other values: 'full', true/false
         brightness = 0.05,   -- other values: range from 0 -> 1
         })
