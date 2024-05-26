@@ -52,7 +52,7 @@ local plugins = {
     {"rose-pine/neovim", lazy=true},
     {'navarasu/onedark.nvim', lazy=true},
     {"maxmx03/fluoromachine.nvim", lazy=true},
-    { "blazkowolf/gruber-darker.nvim", lazy=true},
+    {"blazkowolf/gruber-darker.nvim", lazy=true},
 
     -- LSP
     {
