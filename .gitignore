@@ -47,5 +47,6 @@ assets/.DS_Store
 reports
 scripts/obsidian_backup.py
 assets/client_secret.json
+assets/iterm2.json
 nvim_lua/mac/lua/.luarc.json
 nvim_lua/linux/lua/.luarc.json
