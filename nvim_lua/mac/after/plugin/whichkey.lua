@@ -141,12 +141,6 @@ local n_mappings = {
         S     = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Workspace Symbols" },
     },
 
-    o = {
-        name = "Remote (sshfs)",
-        c = { "<cmd>RemoteSSHFSConnect<cr>",    "Connect" },
-        d = { "<cmd>RemoteSSHFSDisconnect<cr>", "Disconnect" },
-    },
-
     s = {
         name = "Search",
         b = { "<cmd>Telescope git_branches<cr>",   "Checkout branch" },

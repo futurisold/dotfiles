@@ -5,6 +5,20 @@ if not status_ok then
     return
 end
 
+-- check if ps aux finds any running sshfs processes, and if so, don't use nvim-tree
+local function has_sshfs_mounts()
+    local home = os.getenv("HOME")
+    local command = "ps aux | grep -E 'sshfs [^ ]+ " .. home .. "/.sshfs.*'"
+    local handle = io.popen(command)
+    local result = handle:read("*a")
+    handle:close()
+    return result ~= ""
+end
+
+if has_sshfs_mounts() then
+    return
+end
+
 -- disable netrw at the very start of your init.lua
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1

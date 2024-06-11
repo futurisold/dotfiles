@@ -88,8 +88,6 @@ local plugins = {
     -- LaTeX
     { "lervag/vimtex" },
 
-    -- Remote
-    { 'nosduco/remote-sshfs.nvim' }
 }
 
 require("lazy").setup(plugins)
