@@ -69,6 +69,16 @@ local setup = {
     },
 }
 
+local function lbreakpoint()
+    local line = vim.fn.line('.')
+    vim.api.nvim_buf_set_lines(0, line, line, false, {'import code; code.interact(local=locals())'})
+end
+
+local function gbreakpoint()
+    local line = vim.fn.line('.')
+    vim.api.nvim_buf_set_lines(0, line, line, false, {'import code; code.interact(local=globals())'})
+end
+
 local n_mappings = {
     ["a"] = { "<cmd>Alpha<cr>",                                                                                                 "Alpha" },
     ["b"] = { "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>", "Buffers" },
@@ -79,7 +89,12 @@ local n_mappings = {
     ["h"] = { "<cmd>nohlsearch<cr>",                                                                                            "No Highlight" },
     d = {
         name = 'Debugger',
-        b = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Toggle Breakpoint" },
+        b = {
+            name = "Breakpoints",
+            b = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Default DAP Breakpoint" },
+            l = { lbreakpoint, "Insert Local Python Breakpoint" },
+            g = { gbreakpoint, "Insert Global Python Breakpoint" },
+        },
         t = { "<cmd>lua require'dapui'.toggle()<cr>",          "Toggle UI" },
         c = { "<cmd>lua require'dap'.continue()<cr>",          "Continue" },
         i = { "<cmd>lua require'dap'.step_into()<cr>",         "Step Into" },
