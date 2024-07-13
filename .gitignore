@@ -43,6 +43,7 @@ luac.out
 **/.DS_Store
 
 # Other
+.assets
 terminal
 scripts/obsidian_backup.py
 assets/client_secret.json
