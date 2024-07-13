@@ -9,9 +9,6 @@ local keymap = vim.api.nvim_set_keymap
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- Search and replace all highlighted instances (#) in a given file
-keymap("n", "<Leader>R", ":%s@@", opts)
-
 -- Clear highlight
 keymap("n", "//", ":noh<CR>", opts)
 

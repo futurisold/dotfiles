@@ -69,165 +69,124 @@ local setup = {
     },
 }
 
-local function lbreakpoint()
+local function breakpoint()
     local line = vim.fn.line('.')
     vim.api.nvim_buf_set_lines(0, line, line, false, {'import code; code.interact(local=locals())'})
 end
 
-local function gbreakpoint()
-    local line = vim.fn.line('.')
-    vim.api.nvim_buf_set_lines(0, line, line, false, {'import code; code.interact(local=globals())'})
-end
-
 local n_mappings = {
-    ["a"] = { "<cmd>Alpha<cr>",                                                                                                 "Alpha" },
-    ["b"] = { "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>", "Buffers" },
-    ["e"] = { "<cmd>NvimTreeToggle<cr>",                                                                                        "Explorer" },
-    ["w"] = { "<cmd>w!<cr>",                                                                                                    "Save" },
-    ["q"] = { "<cmd>q!<cr>",                                                                                                    "Quit" },
-    ["c"] = { "<cmd>Bdelete!<cr>",                                                                                              "Close Buffer" },
-    ["h"] = { "<cmd>nohlsearch<cr>",                                                                                            "No Highlight" },
-    d = {
-        name = 'Debugger',
-        b = {
-            name = "Breakpoints",
-            b = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Default DAP Breakpoint" },
-            l = { lbreakpoint, "Insert Local Python Breakpoint" },
-            g = { gbreakpoint, "Insert Global Python Breakpoint" },
-        },
-        t = { "<cmd>lua require'dapui'.toggle()<cr>",          "Toggle UI" },
-        c = { "<cmd>lua require'dap'.continue()<cr>",          "Continue" },
-        i = { "<cmd>lua require'dap'.step_into()<cr>",         "Step Into" },
-        o = { "<cmd>lua require'dap'.step_out()<cr>",          "Step Out" },
-        O = { "<cmd>lua require'dap'.step_over()<cr>",         "Step Over" },
-        r = { "<cmd>lua require'dap'.repl.toggle()<cr>",       "Toggle Repl" },
-        s = { "<cmd>lua require'dap'.continue()<cr>",          "Start" },
-        S = { "<cmd>lua require'dap'.close()<cr>",             "Stop" }
-    },
-    p = {
-        name = "Plugins (lazyvim)",
-        b = { "<cmd>Lazy build<cr>",   "Build Plugin" },
-        c = { "<cmd>Lazy check<cr>",   "Check for Updates" },
-        l = { "<cmd>Lazy clean<cr>",   "Clean Plugins" },
-        r = { "<cmd>Lazy clear<cr>",   "Clear Finished Tasks" },
-        d = { "<cmd>Lazy debug<cr>",   "Debug Info" },
-        h = { "<cmd>Lazy health<cr>",  "Health Check" },
-        m = { "<cmd>Lazy home<cr>",    "Plugin List" },
-        i = { "<cmd>Lazy install<cr>", "Install Plugins" },
-        o = { "<cmd>Lazy load<cr>",    "Load Plugin" },
-        g = { "<cmd>Lazy log<cr>",     "Plugin Log" },
-        p = { "<cmd>Lazy profile<cr>", "Profiling" },
-        e = { "<cmd>Lazy reload<cr>",  "Reload Plugin" },
-        s = { "<cmd>Lazy restore<cr>", "Restore Plugin" },
-        y = { "<cmd>Lazy sync<cr>",    "Sync Plugins" },
-        u = { "<cmd>Lazy update<cr>",  "Update Plugins" },
-    },
-    g = {
-        name = "Git",
-        g = { "<cmd>lua _LAZYGIT_TOGGLE()<cr>",                    "Lazygit" },
-        j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>",       "Next Hunk" },
-        k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>",       "Prev Hunk" },
-        l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>",      "Blame" },
-        p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>",    "Preview Hunk" },
-        r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>",      "Reset Hunk" },
-        R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>",    "Reset Buffer" },
-        s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>",      "Stage Hunk" },
-        u = { "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>", "Undo Stage Hunk" },
-        o = { "<cmd>Telescope git_status<cr>",                     "Open changed file" },
-        b = { "<cmd>Telescope git_branches<cr>",                   "Checkout branch" },
-        c = { "<cmd>Telescope git_commits<cr>",                    "Checkout commit" },
-        d = { "<cmd>Gitsigns diffthis HEAD<cr>",                   "Diff" },
-    },
-
-    l = {
-        name = "LSP",
-        a     = { "<cmd>lua vim.lsp.buf.code_action()<cr>",           "Code Action" },
-        d     = { "<cmd>Telescope diagnostics bufnr=0<cr>",           "Document Diagnostics" },
-        w     = { "<cmd>Telescope diagnostics<cr>",                   "Workspace Diagnostics" },
-        f     = { "<cmd>lua vim.lsp.buf.format{async=true}<cr>",      "Format" },
-        i     = { "<cmd>LspInfo<cr>",                                 "Info" },
-        I     = { "<cmd>LspInstallInfo<cr>",                          "Installer Info" },
-        j     = { "<cmd>lua vim.lsp.diagnostic.goto_next()<cr>",      "Next Diagnostic" },
-        k     = { "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>",      "Prev Diagnostic" },
-        l     = { "<cmd>lua vim.lsp.codelens.run()<cr>",              "CodeLens Action" },
-        q     = { "<cmd>lua vim.diagnostic.setloclist()<cr>",         "Quickfix" },
-        r     = { "<cmd>lua vim.lsp.buf.rename()<cr>",                "Rename" },
-        ["?"] = { "<cmd>Telescope lsp_document_symbols<cr>",          "Document Symbols" },
-        S     = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Workspace Symbols" },
-    },
-
-    s = {
-        name = "Search",
-        b = { "<cmd>Telescope git_branches<cr>",   "Checkout branch" },
-        C = { "<cmd>Telescope colorscheme<cr>",    "Colorscheme" },
-        h = { "<cmd>Telescope help_tags<cr>",      "Help Help" },
-        M = { "<cmd>Telescope man_pages<cr>",      "Man Pages" },
-        r = { "<cmd>Telescope oldfiles<cr>",       "Open Recent File" },
-        R = { "<cmd>Telescope registers<cr>",      "Registers" },
-        k = { "<cmd>Telescope keymaps<cr>",        "Keymaps" },
-        c = { "<cmd>Telescope commands<cr>",       "Commands" },
-        f = { "<cmd>Telescope find_files<cr>",     "Find files" },
-        g = { "<cmd>Telescope live_grep_args<cr>", "Find text with rg" },
-    },
-
-    t = {
-        name = "Terminal",
-        n = { "<cmd>lua _NODE_TOGGLE()<cr>",                      "Node" },
-        u = { "<cmd>lua _NCDU_TOGGLE()<cr>",                      "NCDU" },
-        t = { "<cmd>lua _HTOP_TOGGLE()<cr>",                      "Htop" },
-        p = { "<cmd>lua _PYTHON_TOGGLE()<cr>",                    "Python" },
-        f = { "<cmd>ToggleTerm direction=float<cr>",              "Float" },
-        h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
-        v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>",   "Vertical" },
-    },
-
-    r = {
-        name = "Query/Replace",
-        s = { "<cmd>SearchReplaceSingleBufferSelections<cr>", "[s]election list"},
-        W = { "<cmd>SearchReplaceSingleBufferCWORD<cr>",      "[W]ORD" },
-        w = { "<cmd>SearchReplaceSingleBufferCWord<cr>",      "[w]ord" },
-        o = { "<cmd>SearchReplaceSingleBufferOpen<cr>",       "[o]pen" },
-        e = { "<cmd>SearchReplaceSingleBufferCExpr<cr>",      "[e]xpr" },
-        f = { "<cmd>SearchReplaceSingleBufferCFile<cr>",      "[f]ile" },
-    },
-
-    x = {
-        name = "LaTeX",
-        a = { "<cmd>VimtexCompile<cr>",   "Start compiler in continuous mode" },
-        s = { "<cmd>VimtexStop<cr>",      "Stop compiler" },
-        c = { "<cmd>VimtexCompileSS<cr>", "Compile" },
-        e = { "<cmd>VimtexErrors<cr>",    "Errors" },
-        r = { "<cmd>VimtexReload<cr>",    "Reload plugin" }
-    }
+    mode='n',
+    noremap=true,
+    silent=true,
+    nowait=true,
+    buffer=nil,
+    { '<leader>a', "<cmd>Alpha<cr>",                                                                                                 desc="Alpha" },
+    { '<leader>b', "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>", desc="Buffers" },
+    { '<leader>e', "<cmd>NvimTreeToggle<cr>",                                                                                        desc="Explorer" },
+    { '<leader>w', "<cmd>w!<cr>",                                                                                                    desc="Save" },
+    { '<leader>q', "<cmd>q!<cr>",                                                                                                    desc="Quit" },
+    { '<leader>c', "<cmd>Bdelete!<cr>",                                                                                              desc="Close Buffer" },
+    { '<leader>h', "<cmd>nohlsearch<cr>",                                                                                            desc="No Highlight" },
+    { '<leader>d',                                                                                                                   desc='Debugger' },
+    { '<leader>db', "<cmd>lua require'dap'.toggle_breakpoint()<cr>",                                                                 desc="DAP Breakpoint" },
+    { '<leader>dp', breakpoint,                                                                                                      desc="Interact Breakpoint" },
+    { '<leader>dt', "<cmd>lua require'dapui'.toggle()<cr>",                                                                          desc="Toggle UI" },
+    { '<leader>dc', "<cmd>lua require'dap'.continue()<cr>",                                                                          desc="Continue" },
+    { '<leader>di', "<cmd>lua require'dap'.step_into()<cr>",                                                                         desc="Step Into" },
+    { '<leader>do', "<cmd>lua require'dap'.step_out()<cr>",                                                                          desc="Step Out" },
+    { '<leader>dO', "<cmd>lua require'dap'.step_over()<cr>",                                                                         desc="Step Over" },
+    { '<leader>dr', "<cmd>lua require'dap'.repl.toggle()<cr>",                                                                       desc="Toggle Repl" },
+    { '<leader>ds', "<cmd>lua require'dap'.continue()<cr>",                                                                          desc="Start" },
+    { '<leader>dS', "<cmd>lua require'dap'.close()<cr>",                                                                             desc="Stop" },
+    { '<leader>p',                                                                                                                   desc="Plugins (lazyvim)" },
+    { '<leader>pb', "<cmd>Lazy build<cr>",                                                                                           desc="Build Plugin" },
+    { '<leader>pc', "<cmd>Lazy check<cr>",                                                                                           desc="Check for Updates" },
+    { '<leader>pl', "<cmd>Lazy clean<cr>",                                                                                           desc="Clean Plugins" },
+    { '<leader>pr', "<cmd>Lazy clear<cr>",                                                                                           desc="Clear Finished Tasks" },
+    { '<leader>pd', "<cmd>Lazy debug<cr>",                                                                                           desc="Debug Info" },
+    { '<leader>ph', "<cmd>Lazy health<cr>",                                                                                          desc="Health Check" },
+    { '<leader>pm', "<cmd>Lazy home<cr>",                                                                                            desc="Plugin List" },
+    { '<leader>pi', "<cmd>Lazy install<cr>",                                                                                         desc="Install Plugins" },
+    { '<leader>po', "<cmd>Lazy load<cr>",                                                                                            desc="Load Plugin" },
+    { '<leader>pg', "<cmd>Lazy log<cr>",                                                                                             desc="Plugin Log" },
+    { '<leader>pp', "<cmd>Lazy profile<cr>",                                                                                         desc="Profiling" },
+    { '<leader>pe', "<cmd>Lazy reload<cr>",                                                                                          desc="Reload Plugin" },
+    { '<leader>ps', "<cmd>Lazy restore<cr>",                                                                                         desc="Restore Plugin" },
+    { '<leader>py', "<cmd>Lazy sync<cr>",                                                                                            desc="Sync Plugins" },
+    { '<leader>pu', "<cmd>Lazy update<cr>",                                                                                          desc="Update Plugins" },
+    { '<leader>g',                                                                                                                   desc="Git" },
+    { '<leader>gg', "<cmd>lua _LAZYGIT_TOGGLE()<cr>",                                                                                desc="Lazygit" },
+    { '<leader>gj', "<cmd>lua require 'gitsigns'.next_hunk()<cr>",                                                                   desc="Next Hunk" },
+    { '<leader>gk', "<cmd>lua require 'gitsigns'.prev_hunk()<cr>",                                                                   desc="Prev Hunk" },
+    { '<leader>gl', "<cmd>lua require 'gitsigns'.blame_line()<cr>",                                                                  desc="Blame" },
+    { '<leader>gp', "<cmd>lua require 'gitsigns'.preview_hunk()<cr>",                                                                desc="Preview Hunk" },
+    { '<leader>gr', "<cmd>lua require 'gitsigns'.reset_hunk()<cr>",                                                                  desc="Reset Hunk" },
+    { '<leader>gR', "<cmd>lua require 'gitsigns'.reset_buffer()<cr>",                                                                desc="Reset Buffer" },
+    { '<leader>gs', "<cmd>lua require 'gitsigns'.stage_hunk()<cr>",                                                                  desc="Stage Hunk" },
+    { '<leader>gu', "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",                                                             desc="Undo Stage Hunk" },
+    { '<leader>go', "<cmd>Telescope git_status<cr>",                                                                                 desc="Open changed file" },
+    { '<leader>gb', "<cmd>Telescope git_branches<cr>",                                                                               desc="Checkout branch" },
+    { '<leader>gc', "<cmd>Telescope git_commits<cr>",                                                                                desc="Checkout commit" },
+    { '<leader>gd', "<cmd>Gitsigns diffthis HEAD<cr>",                                                                               desc="Diff" },
+    { '<leader>l',                                                                                                                   desc="LSP" },
+    { '<leader>la', "<cmd>lua vim.lsp.buf.code_action()<cr>",                                                                        desc="Code Action" },
+    { '<leader>ld', "<cmd>Telescope diagnostics bufnr=0<cr>",                                                                        desc="Document Diagnostics" },
+    { '<leader>lw', "<cmd>Telescope diagnostics<cr>",                                                                                desc="Workspace Diagnostics" },
+    { '<leader>lf', "<cmd>lua vim.lsp.buf.format{async=true}<cr>",                                                                   desc="Format" },
+    { '<leader>li', "<cmd>LspInfo<cr>",                                                                                              desc="Info" },
+    { '<leader>lI', "<cmd>LspInstallInfo<cr>",                                                                                       desc="Installer Info" },
+    { '<leader>lj', "<cmd>lua vim.lsp.diagnostic.goto_next()<cr>",                                                                   desc="Next Diagnostic" },
+    { '<leader>lk', "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>",                                                                   desc="Prev Diagnostic" },
+    { '<leader>ll', "<cmd>lua vim.lsp.codelens.run()<cr>",                                                                           desc="CodeLens Action" },
+    { '<leader>lq', "<cmd>lua vim.diagnostic.setloclist()<cr>",                                                                      desc="Quickfix" },
+    { '<leader>lr', "<cmd>lua vim.lsp.buf.rename()<cr>",                                                                             desc="Rename" },
+    { '<leader>lS', "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",                                                              desc="Workspace Symbols" },
+    { '<leader>l?', "<cmd>Telescope lsp_document_symbols<cr>",                                                                       desc="Document Symbols" },
+    { '<leader>s',                                                                                                                   desc="Search" },
+    { '<leader>sb', "<cmd>Telescope git_branches<cr>",                                                                               desc="Checkout branch" },
+    { '<leader>sC', "<cmd>Telescope colorscheme<cr>",                                                                                desc="Colorscheme" },
+    { '<leader>sh', "<cmd>Telescope help_tags<cr>",                                                                                  desc="Help Help" },
+    { '<leader>sM', "<cmd>Telescope man_pages<cr>",                                                                                  desc="Man Pages" },
+    { '<leader>sr', "<cmd>Telescope oldfiles<cr>",                                                                                   desc="Open Recent File" },
+    { '<leader>sR', "<cmd>Telescope registers<cr>",                                                                                  desc="Registers" },
+    { '<leader>sk', "<cmd>Telescope keymaps<cr>",                                                                                    desc="Keymaps" },
+    { '<leader>sc', "<cmd>Telescope commands<cr>",                                                                                   desc="Commands" },
+    { '<leader>sf', "<cmd>Telescope find_files<cr>",                                                                                 desc="Find files" },
+    { '<leader>sg', "<cmd>Telescope live_grep_args<cr>",                                                                             desc="Find text with rg" },
+    { '<leader>t',                                                                                                                   desc="Terminal" },
+    { '<leader>tn', "<cmd>lua _NODE_TOGGLE()<cr>",                                                                                   desc="Node" },
+    { '<leader>tu', "<cmd>lua _NCDU_TOGGLE()<cr>",                                                                                   desc="NCDU" },
+    { '<leader>tt', "<cmd>lua _HTOP_TOGGLE()<cr>",                                                                                   desc="Htop" },
+    { '<leader>tp', "<cmd>lua _PYTHON_TOGGLE()<cr>",                                                                                 desc="Python" },
+    { '<leader>tf', "<cmd>ToggleTerm direction=float<cr>",                                                                           desc="Float" },
+    { '<leader>th', "<cmd>ToggleTerm size=10 direction=horizontal<cr>",                                                              desc="Horizontal" },
+    { '<leader>tv', "<cmd>ToggleTerm size=80 direction=vertical<cr>",                                                                desc="Vertical" },
+    { '<leader>r',                                                                                                                   desc="Query/Replace" },
+    { '<leader>rs', "<cmd>SearchReplaceSingleBufferSelections<cr>",                                                                  desc="[s]election list"},
+    { '<leader>rW', "<cmd>SearchReplaceSingleBufferCWORD<cr>",                                                                       desc="[W]ORD" },
+    { '<leader>rw', "<cmd>SearchReplaceSingleBufferCWord<cr>",                                                                       desc="[w]ord" },
+    { '<leader>ro', "<cmd>SearchReplaceSingleBufferOpen<cr>",                                                                        desc="[o]pen" },
+    { '<leader>re', "<cmd>SearchReplaceSingleBufferCExpr<cr>",                                                                       desc="[e]xpr" },
+    { '<leader>rf', "<cmd>SearchReplaceSingleBufferCFile<cr>",                                                                       desc="[f]ile" },
+    { '<leader>x',                                                                                                                   desc="LaTeX" },
+    { '<leader>xa', "<cmd>VimtexCompile<cr>",                                                                                        desc="Start compiler" },
+    { '<leader>xs', "<cmd>VimtexStop<cr>",                                                                                           desc="Stop compiler" },
+    { '<leader>xc', "<cmd>VimtexCompileSS<cr>",                                                                                      desc="Compile" },
+    { '<leader>xe', "<cmd>VimtexErrors<cr>",                                                                                         desc="Errors" },
+    { '<leader>xr', "<cmd>VimtexReload<cr>",                                                                                         desc="Reload plugin" }
 }
 
 local v_mappings = {
-    r = {
-        name = "Query/Replace",
-        w = { "<cmd>SearchReplaceWithinVisualSelection<cr>",      "Charwise" },
-        c = { "<cmd>SearchReplaceWithinVisualSelectionCWord<cr>", "Blockwise/Linewise" },
-    }
-}
-
-local n_opts = {
-    mode = "n", -- NORMAL mode
-    prefix = "<leader>",
-    buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-    silent = true, -- use `silent` when creating keymaps
-    noremap = true, -- use `noremap` when creating keymaps
-    nowait = true, -- use `nowait` when creating keymaps
-}
-
-local v_opts = {
-    mode = "v", -- VISUAL mode
-    prefix = "<leader>",
-    buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-    silent = true, -- use `silent` when creating keymaps
-    noremap = true, -- use `noremap` when creating keymaps
-    nowait = true, -- use `nowait` when creating keymaps
+    mode='v',
+    noremap=true,
+    silent=true,
+    nowait=true,
+    buffer=nil,
+    { "<leader>r", desc="Query/Replace" },
+    { "<leader>rr", "<cmd>SearchReplaceWithinVisualSelection<cr>", desc='Search and replace'},
+    { "<leader>rc", "<cmd>SearchReplaceWithinVisualSelectionCWord<cr>", desc='Search and replace with current word'},
 }
 
 which_key.setup(setup)
-which_key.register(n_mappings, n_opts)
-which_key.register(v_mappings, v_opts)
-
+which_key.add(n_mappings)
+which_key.add(v_mappings)
