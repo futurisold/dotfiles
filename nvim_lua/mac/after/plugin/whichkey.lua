@@ -179,7 +179,6 @@ local n_mappings = {
     nowait=true,
     buffer=nil,
     icon='', -- this can be set for each mapping; disabled at the root level to propagate to all mappings
-    { '<leader>a', "<cmd>Alpha<cr>",                                                                                                 desc="Alpha" },
     { '<leader>b', "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>", desc="Buffers" },
     { '<leader>e', "<cmd>NvimTreeToggle<cr>",                                                                                        desc="Explorer" },
     { '<leader>w', "<cmd>w!<cr>",                                                                                                    desc="Save" },
@@ -272,7 +271,9 @@ local n_mappings = {
     { '<leader>xs', "<cmd>VimtexStop<cr>",                                                                                           desc="Stop compiler" },
     { '<leader>xc', "<cmd>VimtexCompileSS<cr>",                                                                                      desc="Compile" },
     { '<leader>xe', "<cmd>VimtexErrors<cr>",                                                                                         desc="Errors" },
-    { '<leader>xr', "<cmd>VimtexReload<cr>",                                                                                         desc="Reload plugin" }
+    { '<leader>xr', "<cmd>VimtexReload<cr>",                                                                                         desc="Reload plugin" },
+    { '<leader>aa', "<cmd>AvanteAsk<cr>",                                                                                            desc="Ask AI copilot" },
+    { '<leader>ac', "<cmd>AvanteClose<cr>",                                                                                          desc="Collapse AI copilot chat panel" },
 }
 
 local v_mappings = {

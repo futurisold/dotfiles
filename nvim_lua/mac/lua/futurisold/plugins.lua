@@ -78,6 +78,28 @@ local plugins = {
         }
     },
 
+    {
+      "yetone/avante.nvim", -- god mode, but on steroids
+      event = "VeryLazy",
+      build = "make lua51", -- "make" or "make lua51" (ARM Mac)
+      opts = {
+        -- add any opts here
+      },
+      dependencies = {
+        "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
+        "stevearc/dressing.nvim",
+        "nvim-lua/plenary.nvim",
+        "MunifTanjim/nui.nvim",
+        {
+          'MeanderingProgrammer/render-markdown.nvim',
+          opts = {
+            file_types = { "markdown", "Avante" },
+          },
+          ft = { "markdown", "Avante" },
+        },
+      },
+    },
+
     -- Debugger
     { "mfussenegger/nvim-dap",
         dependencies = {

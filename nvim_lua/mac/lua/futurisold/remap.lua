@@ -19,10 +19,10 @@ keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
 -- Resize with arrows
--- keymap("n", "<S-Up>", ":resize -2<CR>", opts)
--- keymap("n", "<S-Down>", ":resize +2<CR>", opts)
-keymap("n", "<S-Up>", ":vertical resize +2<CR>", opts)
-keymap("n", "<S-Down>", ":vertical resize -2<CR>", opts)
+keymap("n", "<S-Up>", ":resize -2<CR>", opts)
+keymap("n", "<S-Down>", ":resize +2<CR>", opts)
+-- keymap("n", "<S-Up>", ":vertical resize +2<CR>", opts)
+-- keymap("n", "<S-Down>", ":vertical resize -2<CR>", opts)
 
 -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
