@@ -172,6 +172,13 @@ local function breakpoint()
     vim.api.nvim_buf_set_lines(0, line, line, false, {'import code; code.interact(local=locals())'})
 end
 
+local function toggle_explorer()
+    local status_ok, _ = pcall(vim.cmd, "NvimTreeToggle")
+    if not status_ok then
+        vim.cmd("Explore")
+    end
+end
+
 local n_mappings = {
     mode='n',
     noremap=true,
@@ -180,7 +187,7 @@ local n_mappings = {
     buffer=nil,
     icon='', -- this can be set for each mapping; disabled at the root level to propagate to all mappings
     { '<leader>b', "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>", desc="Buffers" },
-    { '<leader>e', "<cmd>NvimTreeToggle<cr>",                                                                                        desc="Explorer" },
+    { '<leader>e', toggle_explorer,                                                                                        desc="Explorer" },
     { '<leader>w', "<cmd>w!<cr>",                                                                                                    desc="Save" },
     { '<leader>q', "<cmd>q!<cr>",                                                                                                    desc="Quit" },
     { '<leader>c', "<cmd>Bdelete!<cr>",                                                                                              desc="Close Buffer" },
@@ -272,6 +279,7 @@ local n_mappings = {
     { '<leader>xc', "<cmd>VimtexCompileSS<cr>",                                                                                      desc="Compile" },
     { '<leader>xe', "<cmd>VimtexErrors<cr>",                                                                                         desc="Errors" },
     { '<leader>xr', "<cmd>VimtexReload<cr>",                                                                                         desc="Reload plugin" },
+    { '<leader>a',                                                                                                                   desc="Avante" },
     { '<leader>aa', "<cmd>AvanteAsk<cr>",                                                                                            desc="Ask AI copilot" },
     { '<leader>ac', "<cmd>AvanteClose<cr>",                                                                                          desc="Collapse AI copilot chat panel" },
 }

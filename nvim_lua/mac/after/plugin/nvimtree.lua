@@ -5,6 +5,7 @@ if not status_ok then
     return
 end
 
+
 -- check if ps aux finds any running sshfs processes, and if so, don't use nvim-tree
 local function has_sshfs_mounts()
     local home = os.getenv("HOME")
@@ -16,8 +17,11 @@ local function has_sshfs_mounts()
 end
 
 if has_sshfs_mounts() then
+    -- Add binding to open :Explore with <leader>e only if sshfs is mounted
+    vim.api.nvim_set_keymap('n', '<leader>e', ':Explore<CR>', { noremap = true, silent = true })
     return
 end
+
 
 -- disable netrw at the very start of your init.lua
 vim.g.loaded_netrw = 1
