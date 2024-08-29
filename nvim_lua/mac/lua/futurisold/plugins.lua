@@ -81,7 +81,7 @@ local plugins = {
     {
       "yetone/avante.nvim", -- god mode, but on steroids
       event = "VeryLazy",
-      build = "make lua51", -- "make" or "make lua51" (ARM Mac)
+      lazy = false,
       opts = {
         -- add any opts here
       },
@@ -90,6 +90,23 @@ local plugins = {
         "stevearc/dressing.nvim",
         "nvim-lua/plenary.nvim",
         "MunifTanjim/nui.nvim",
+        {
+          -- support for image pasting
+          "HakonHarnes/img-clip.nvim",
+          event = "VeryLazy",
+          opts = {
+            -- recommended settings
+            default = {
+              embed_image_as_base64 = false,
+              prompt_for_file_name = false,
+              drag_and_drop = {
+                insert_mode = true,
+              },
+              -- required for Windows users
+              use_absolute_path = true,
+            },
+          },
+        },
         {
           'MeanderingProgrammer/render-markdown.nvim',
           opts = {
