@@ -14,7 +14,7 @@ end
 
 local plugins = {
     "nvim-lua/plenary.nvim", -- useful lua functions used by lots of plugins
-    { "nvim-treesitter/nvim-treesitter" }, -- nice highlighting without overhead
+    { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
     { "nvim-telescope/telescope.nvim", branch = "0.1.x",
         dependencies = {
             { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' }, -- fzf extension for telescope find files
