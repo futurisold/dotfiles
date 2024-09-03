@@ -281,7 +281,6 @@ local n_mappings = {
     { '<leader>xr', "<cmd>VimtexReload<cr>",                                                                                         desc="Reload plugin" },
     { '<leader>a',                                                                                                                   desc="Avante" },
     { '<leader>aa', "<cmd>AvanteAsk<cr>",                                                                                            desc="Ask AI copilot" },
-    { '<leader>ac', "<cmd>AvanteClose<cr>",                                                                                          desc="Collapse AI copilot chat panel" },
 }
 
 local v_mappings = {
