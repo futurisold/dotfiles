@@ -19,6 +19,12 @@ if colorscheme == "rose-pine" then
     })
 end
 
+if colorscheme == "tokyonight" then
+    require('tokyonight').setup({
+        style = "moon", -- other values: 'night', 'storm', 'moon', 'day'
+        })
+end
+
 if colorscheme == "onedark" then
     require('onedark').setup({
         style = "darker", -- other values: 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer'
