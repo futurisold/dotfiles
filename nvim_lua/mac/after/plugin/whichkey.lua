@@ -187,7 +187,7 @@ local n_mappings = {
     buffer=nil,
     icon='', -- this can be set for each mapping; disabled at the root level to propagate to all mappings
     { '<leader>b', "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>", desc="Buffers" },
-    { '<leader>e', toggle_explorer,                                                                                        desc="Explorer" },
+    { '<leader>e', toggle_explorer,                                                                                                  desc="Explorer" },
     { '<leader>w', "<cmd>w!<cr>",                                                                                                    desc="Save" },
     { '<leader>q', "<cmd>q!<cr>",                                                                                                    desc="Quit" },
     { '<leader>c', "<cmd>Bdelete!<cr>",                                                                                              desc="Close Buffer" },
