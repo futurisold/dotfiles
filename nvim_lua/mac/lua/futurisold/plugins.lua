@@ -53,6 +53,8 @@ local plugins = {
     {'navarasu/onedark.nvim', lazy=true},
     {"maxmx03/fluoromachine.nvim", lazy=true},
     {"blazkowolf/gruber-darker.nvim", lazy=true},
+    {"catppuccin/nvim", name = "catppuccin", priority = 1000},
+
 
     -- LSP
     {
