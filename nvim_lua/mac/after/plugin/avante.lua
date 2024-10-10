@@ -17,7 +17,7 @@ avante.setup({
       provider = "openai", -- "claude",
       claude = {
         endpoint = "https://api.openai.com/v1", -- "https://api.anthropic.com",
-        model = "o1-mini", -- "claude-3-5-sonnet-20240620",
+        model = "o1-preview", -- "claude-3-5-sonnet-20240620",
         api_key_name = os.getenv("OPENAI_API_KEY"), -- os.getenv("ANTHROPIC_API_KEY"), -- this is set in your shell rc file
         temperature = 1,
         max_tokens = 4096,

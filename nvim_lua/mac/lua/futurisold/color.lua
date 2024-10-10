@@ -1,6 +1,25 @@
-local colorscheme = "rose-pine"
+local colorscheme = "gruber-darker"
 local transparent = false
 
+
+if colorscheme == "gruber-darker" then
+    require("gruber-darker").setup({
+      bold = true,
+      invert = {
+        signs = false,
+        tabline = false,
+        visual = false,
+      },
+      italic = {
+        strings = false,
+        comments = true,
+        operators = false,
+        folds = true,
+      },
+      undercurl = true,
+      underline = true,
+    })
+end
 
 if colorscheme == "rose-pine" then
     require("rose-pine").setup({
