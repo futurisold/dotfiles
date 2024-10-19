@@ -48,7 +48,7 @@ local plugins = {
 
     -- Colorschemes
     {"ellisonleao/gruvbox.nvim", lazy=true},
-    {"folke/tokyonight.nvim", lazy=true},
+    {"folke/tokyonight.nvim", lazy=false, priority=1000, opts={}},
     {"rose-pine/neovim", lazy=true},
     {'navarasu/onedark.nvim', lazy=true},
     {"maxmx03/fluoromachine.nvim", lazy=true},

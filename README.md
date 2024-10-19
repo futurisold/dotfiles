@@ -1,5 +1,5 @@
 <p align="center">
-    <img alt="neovim" src="./assets/ss.png"/ style="width:75%; height:75%;"/>
+    <img alt="neovim" src="./assets/setup.png"/ style="width:75%; height:75%;"/>
 </p>
 
 # What I use:
