@@ -14,11 +14,11 @@ require('avante_lib').load()
 
 avante.setup({
       ---@alias Provider "openai" | "claude" | "azure"  | "copilot" | [string]
-      provider = "openai", -- "claude",
+      provider = "claude",
       claude = {
-        endpoint = "https://api.openai.com/v1", -- "https://api.anthropic.com",
-        model = "o1-preview", -- "claude-3-5-sonnet-20240620",
-        api_key_name = os.getenv("OPENAI_API_KEY"), -- os.getenv("ANTHROPIC_API_KEY"), -- this is set in your shell rc file
+        endpoint = "https://api.anthropic.com", -- https://api.openai.com/v1, https://api.anthropic.com
+        model = "claude-3-5-sonnet-latest",
+        api_key_name = os.getenv("ANTHROPIC_API_KEY"), -- ANTHROPIC_API_KEY, OPENAI_API_KEY -- this is set in your shell rc file
         temperature = 1,
         max_tokens = 4096,
       },
