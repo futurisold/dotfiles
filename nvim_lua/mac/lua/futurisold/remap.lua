@@ -12,6 +12,14 @@ vim.g.maplocalleader = " "
 -- Clear highlight
 keymap("n", "//", ":noh<CR>", opts)
 
+-- Prevent 'd', 'D', 'c', 'C' from affecting the default register
+keymap("n", "d", '"_d', opts)
+keymap("v", "d", '"_d', opts)
+keymap("n", "D", '"_D', opts)
+keymap("n", "c", '"_c', opts)
+keymap("v", "c", '"_c', opts)
+keymap("n", "C", '"_C', opts)
+
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
