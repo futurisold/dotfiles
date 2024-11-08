@@ -1,0 +1,83 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+    {
+    "bindings": { // general bindings
+        "tab": "menu::SelectNext",
+        "shift-tab": "menu::SelectPrev"
+        }
+    },
+    {
+        "context": "Editor && vim_mode == normal",
+        "bindings": {
+            "shift-h": "pane::ActivatePrevItem",
+            "shift-l": "pane::ActivateNextItem",
+            "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
+            "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"],
+            "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
+            "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
+            "space e": "workspace::ToggleLeftDock",
+            "space t": "workspace::ToggleBottomDock",
+            "space r": "workspace::ToggleRightDock",
+            "space w": "workspace::Save",
+            "space c": "pane::CloseActiveItem",
+            "space [": "editor::Fold",
+            "space ]": "editor::UnfoldLines",
+            "/ /": "editor::Cancel",
+            "space / /": "editor::ToggleComments",
+            "space l r": "search::ToggleReplace",
+            "space l d": "diagnostics::Deploy",
+            "space f": "file_finder::Toggle",
+            "space o": "tab_switcher::Toggle",
+            "space s": "outline::Toggle",
+            "space s t": "pane::DeploySearch",
+            "space shift-s": "project_symbols::Toggle",
+            "space f r": "editor::FindAllReferences",
+            "g o": "editor::GoToTypeDefinition"
+        }
+    },
+    {
+        "context": "Editor && vim_mode == insert",
+        "bindings": {
+            "§": ["vim::SwitchMode", "Normal"]
+        }
+    },
+    {
+        "context": "Editor && vim_mode == visual",
+        "bindings": {
+            "<": ["editor::Outdent", "editor::ToggleVisual"],
+            ">": ["editor::Indent", "editor::ToggleVisual"],
+            "space >": "assistant::QuoteSelection",
+            "shift-k": "editor::MoveLineUp",
+            "shift-j": "editor::MoveLineDown"
+      }
+    },
+    {
+        "context": "Terminal",
+        "bindings": {
+            "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
+            "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
+            "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
+            "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"],
+            "ctrl-v i": "terminal::ToggleViMode"
+        }
+    },
+    {
+        "context": "Editor",
+        "bindings": {
+            "shift-j": "editor::MoveLineDown",
+            "shift-k": "editor::MoveLineUp"
+        }
+    },
+    {
+        "context": "AssistantPanel",
+        "bindings": {
+            "space k c": "assistant::CopyCode",
+        }
+    }
+]

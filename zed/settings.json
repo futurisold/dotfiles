@@ -1,0 +1,67 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+    "assistant": {
+        "default_model": {
+            "provider": "anthropic",
+            "model": "claude-3-5-sonnet-latest"
+        },
+        "version": "2"
+    },
+    "ssh_connections": [
+        {
+            "host": "research-ec2-2",
+        }
+    ],
+    "ui_font_size": 16,
+    "buffer_font_size": 16,
+    "theme": {
+        "mode": "system",
+        "light": "One Light",
+        "dark": "Rosé Pine"
+    },
+    "vim_mode": true,
+    "format_on_save": "off",
+    "enable_language_server": true,
+    "tab_size": 4,
+    "relative_line_numbers": true,
+    "languages": {
+        "Python": {
+            "format_on_save": "off",
+            "enable_language_server": true,
+            "language_servers": ["pyright"]
+            }
+        },
+    "lsp": {
+        "pyright": {
+            "settings": {
+                "python.analysis": {
+                "diagnosticMode": "off",
+                "typeCheckingMode": "off"
+                }
+            }
+        }
+    },
+    "use_autoclose": true,
+    "show_completion_documentation": true,
+    "vim": {
+        "use_system_clipboard": "always"
+    },
+    "scroll_beyond_last_line": "off",
+    "current_line_highlight": "line",
+    "hard_tabs": false,
+    "scrollbar": {
+        "show": "never"
+    },
+    "ensure_final_newline_on_save": true,
+    "remove_trailing_whitespace_on_save": true,
+    "inlay_hints": {
+        "enabled": false
+    }
+}
