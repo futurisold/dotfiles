@@ -21,14 +21,12 @@
             "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"],
             "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
             "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
-            "space e": "workspace::ToggleLeftDock",
             "space t": "workspace::ToggleBottomDock",
             "space r": "workspace::ToggleRightDock",
             "space w": "workspace::Save",
             "space c": "pane::CloseActiveItem",
             "space [": "editor::Fold",
             "space ]": "editor::UnfoldLines",
-            "/ /": "editor::Cancel",
             "space / /": "editor::ToggleComments",
             "space l r": "search::ToggleReplace",
             "space l d": "diagnostics::Deploy",
@@ -54,7 +52,8 @@
             ">": ["editor::Indent", "editor::ToggleVisual"],
             "space >": "assistant::QuoteSelection",
             "shift-k": "editor::MoveLineUp",
-            "shift-j": "editor::MoveLineDown"
+            "shift-j": "editor::MoveLineDown",
+            "space / /": "editor::ToggleComments"
       }
     },
     {
@@ -65,13 +64,6 @@
             "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
             "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"],
             "ctrl-v i": "terminal::ToggleViMode"
-        }
-    },
-    {
-        "context": "Editor",
-        "bindings": {
-            "shift-j": "editor::MoveLineDown",
-            "shift-k": "editor::MoveLineUp"
         }
     },
     {
