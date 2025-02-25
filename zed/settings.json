@@ -7,21 +7,32 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+    "features": {
+        "edit_prediction_provider": "zed"
+    },
     "assistant": {
         "default_model": {
             "provider": "anthropic",
             "model": "claude-3-5-sonnet-latest"
         },
-        "version": "2"
+        "version": "2",
+        "enable_experimental_live_diffs": true
     },
     "ssh_connections": [
+    {
+      "host": "extensity",
+      "projects": [
         {
-            "host": "research-ec2-2",
+          "paths": [
+            "~/dev"
+          ]
         }
-    ],
+      ]
+    }
+  ],
     "ui_font_size": 16,
     "buffer_font_size": 16,
-    "buffer_font_family": "Zed Plex Mono",
+    "buffer_font_family": "JetBrains Mono",
     "theme": {
         "mode": "system",
         "light": "One Light",
@@ -37,14 +48,15 @@
             "format_on_save": "off",
             "enable_language_server": true,
             "language_servers": ["pyright"]
-            }
-        },
+        }
+    },
     "lsp": {
-        "pyright": {
-            "settings": {
-                "python.analysis": {
-                "diagnosticMode": "off",
-                "typeCheckingMode": "off"
+            "pyright": {
+                "settings": {
+                    "python.analysis": {
+                    "diagnosticMode": "off",
+                    "typeCheckingMode": "off",
+                    "extraPaths": ["/Users/futurisold/devspace/projects/symbolicai"]
                 }
             }
         }
@@ -65,5 +77,6 @@
     "inlay_hints": {
         "enabled": false
 
-    }
+    },
+    "soft_wrap": "editor_width"
 }
