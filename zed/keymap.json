@@ -9,25 +9,24 @@
     {
     "bindings": { // general bindings
         "tab": "menu::SelectNext",
-        "shift-tab": "menu::SelectPrev"
+        "shift-tab": "menu::SelectPrevious"
         }
     },
     {
         "context": "Editor && vim_mode == normal",
         "bindings": {
-            "shift-h": "pane::ActivatePrevItem",
+            "shift-h": "pane::ActivatePreviousItem",
             "shift-l": "pane::ActivateNextItem",
-            "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
-            "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"],
-            "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
-            "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
+            "ctrl-h": "workspace::ActivatePaneLeft",
+            "ctrl-j": "workspace::ActivatePaneDown",
+            "ctrl-k": "workspace::ActivatePaneUp",
+            "ctrl-l": "workspace::ActivatePaneRight",
             "space t": "workspace::ToggleBottomDock",
             "space r": "workspace::ToggleRightDock",
             "space w": "workspace::Save",
             "space c": "pane::CloseActiveItem",
             "space [": "editor::Fold",
             "space ]": "editor::UnfoldLines",
-            "space / /": "editor::ToggleComments",
             "space l r": "search::ToggleReplace",
             "space l d": "diagnostics::Deploy",
             "space f": "file_finder::Toggle",
@@ -42,34 +41,64 @@
     {
         "context": "Editor && vim_mode == insert",
         "bindings": {
-            "§": ["vim::SwitchMode", "Normal"]
+            "§": "vim::SwitchToNormalMode"
         }
     },
     {
         "context": "Editor && vim_mode == visual",
+        "use_key_equivalents": true,
         "bindings": {
-            "<": ["editor::Outdent", "editor::ToggleVisual"],
-            ">": ["editor::Indent", "editor::ToggleVisual"],
+            "<": "editor::Outdent",
+            ">": "editor::Indent",
             "space >": "assistant::QuoteSelection",
             "shift-k": "editor::MoveLineUp",
-            "shift-j": "editor::MoveLineDown",
-            "space / /": "editor::ToggleComments"
+            "shift-j": "editor::MoveLineDown"
       }
     },
     {
         "context": "Terminal",
         "bindings": {
-            "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
-            "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
-            "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
-            "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"],
+            "ctrl-h": "workspace::ActivatePaneLeft",
+            "ctrl-l": "workspace::ActivatePaneRight",
+            "ctrl-k": "workspace::ActivatePaneUp",
+            "ctrl-j": "workspace::ActivatePaneDown",
             "ctrl-v i": "terminal::ToggleViMode"
         }
     },
     {
         "context": "AssistantPanel",
         "bindings": {
-            "space k c": "assistant::CopyCode",
+            "space k c": "assistant::CopyCode"
+        }
+    },
+    {
+        "context": "Terminal",
+        "use_key_equivalents": true,
+        "bindings": {
+            "cmd-k": "terminal::Clear",
+            "shift-pageup": "terminal::ScrollPageUp",
+            "shift-pagedown": "terminal::ScrollPageDown"
+        }
+    },
+    {
+        "context": "AssistantPanel2",
+        "bindings": {
+            "space n": "assistant2::NewThread",
+            "space p": "assistant2::NewPromptEditor",
+            "space h": "assistant2::OpenHistory"
+        }
+    },
+    {
+        "context": "MessageEditor > Editor",
+        "bindings": {
+            "ctrl-enter": "assistant2::Chat"
+        }
+    },
+    {
+        "context": "GitPanel && ChangesList",
+        "bindings": {
+            "space x": "git::ToggleStaged",
+            "space shift-x": "git::StageAll"
         }
     }
 ]
