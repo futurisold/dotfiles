@@ -39,10 +39,10 @@
         }
     },
     {
-        "context": "Editor && vim_mode == insert",
-        "bindings": {
-            "§": "vim::SwitchToNormalMode"
-        }
+      "context": "MessageEditor > Editor && vim_mode == insert",
+      "bindings": {
+        "ctrl-h": "workspace::ActivatePaneLeft",
+      }
     },
     {
         "context": "Editor && vim_mode == visual",
@@ -78,20 +78,6 @@
             "cmd-k": "terminal::Clear",
             "shift-pageup": "terminal::ScrollPageUp",
             "shift-pagedown": "terminal::ScrollPageDown"
-        }
-    },
-    {
-        "context": "AssistantPanel2",
-        "bindings": {
-            "space n": "assistant2::NewThread",
-            "space p": "assistant2::NewPromptEditor",
-            "space h": "assistant2::OpenHistory"
-        }
-    },
-    {
-        "context": "MessageEditor > Editor",
-        "bindings": {
-            "ctrl-enter": "assistant2::Chat"
         }
     },
     {

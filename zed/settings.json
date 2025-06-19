@@ -7,16 +7,58 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "features": {
-    "edit_prediction_provider": "zed"
+  "debugger": {
+    "dock": "bottom"
   },
-  "assistant": {
-    "default_model": {
+  "icon_theme": "Bearded Icon Theme",
+  "show_edit_predictions": true,
+  "edit_predictions": {
+      "mode": "eager",
+      "enabled_in_text_threads": true
+  },
+  "agent": {
+    "inline_assistant_model": {
       "provider": "anthropic",
-      "model": "claude-3-7-sonnet-latest"
+      "model": "claude-sonnet-4-thinking-latest"
     },
-    "version": "2",
-    "enable_experimental_live_diffs": true
+    "always_allow_tool_actions": true,
+    "default_profile": "ask",
+    "default_model": {
+      "provider": "openai",
+      "model": "o3"
+    },
+    "version": "2"
+  },
+  "features": {
+      "edit_prediction_provider": "copilot"
+  },
+  "language_models": {
+    "anthropic": {
+      "version": "1",
+      "available_models": [
+        {
+          "name": "claude-3-7-sonnet-latest",
+          "display_name": "Claude 3.7 Thinking",
+          "max_tokens": 200000,
+          "mode": {
+            "type": "thinking",
+            "budget_tokens": 32368
+          }
+        }
+      ]
+    },
+    "openai": {
+      "available_models": [
+        {
+          "name": "o4-mini",
+          "display_name": "o4-mini (high)",
+          "max_tokens": 200000,
+          "max_completion_tokens": 100000,
+          "reasoning_effort": "high"
+        }
+      ],
+      "version": "1"
+    }
   },
   "ssh_connections": [
     {
@@ -31,9 +73,10 @@
   "ui_font_size": 15,
   "buffer_font_size": 15,
   "buffer_font_family": "JetBrains Mono",
-  "theme": "Rosé Pine",
+  "theme": "Zed Legacy: Rosé Pine",
   "experimental.theme_overrides": {
     "panel.focused_border": "#524f67",
+    "ignored": "#504c63",
     "syntax": {
       "comment": {
         "font_style": "italic"
@@ -47,15 +90,23 @@
     }
   },
   "vim_mode": true,
+  "vim": {
+    "use_system_clipboard": "on_yank"
+  },
   "format_on_save": "off",
   "enable_language_server": true,
   "tab_size": 4,
   "relative_line_numbers": true,
   "languages": {
+    "Ruby": {
+      "language_servers": ["!solargraph"]
+    },
     "Python": {
+      "show_edit_predictions": true,
       "format_on_save": "off",
       "enable_language_server": true,
       "language_servers": ["pyright"]
+
     }
   },
   "lsp": {
@@ -65,15 +116,37 @@
           "diagnosticMode": "off",
           "typeCheckingMode": "off",
           "extraPaths": ["/Users/futurisold/devspace/projects/symbolicai"]
+        },
+        "python": {
+            "pythonPath": "/Users/futurisold/miniconda3/envs/symai/bin/python"
+        }
+      }
+    },
+    "texlab": {
+      "settings": {
+        "texlab": {
+          "build": {
+            "executable": "xelatex",
+            "args": ["-synctex=1", "-interaction=nonstopmode", "%f"],
+            "onSave": true,
+            "forwardSearchAfter": true
+          },
+          "forwardSearch": {
+            "executable": "zathura",
+            "args": [
+              "--synctex-forward",
+              "%l:1:%f",
+              "-x",
+              "zed %%{input}:%%{line}",
+              "%p"
+            ]
+          }
         }
       }
     }
   },
   "use_autoclose": true,
   "show_completion_documentation": true,
-  "vim": {
-    "use_system_clipboard": "always"
-  },
   "scroll_beyond_last_line": "off",
   "current_line_highlight": "line",
   "hard_tabs": false,
@@ -83,7 +156,7 @@
   "ensure_final_newline_on_save": true,
   "remove_trailing_whitespace_on_save": true,
   "inlay_hints": {
-    "enabled": false
+    "enabled": true
   },
   "soft_wrap": "editor_width"
 }
