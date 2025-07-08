@@ -39,9 +39,15 @@
         }
     },
     {
+        "context": "ProjectPanel", // left dock
+        "bindings": {
+            "ctrl-l": "workspace::ActivatePaneRight"
+        }
+    },
+    {
       "context": "MessageEditor > Editor && vim_mode == insert",
       "bindings": {
-        "ctrl-h": "workspace::ActivatePaneLeft",
+        "ctrl-h": "workspace::ActivatePaneLeft"
       }
     },
     {

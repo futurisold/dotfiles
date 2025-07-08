@@ -22,10 +22,10 @@
       "model": "claude-sonnet-4-thinking-latest"
     },
     "always_allow_tool_actions": true,
-    "default_profile": "ask",
+    "default_profile": "minimal",
     "default_model": {
-      "provider": "openai",
-      "model": "o3"
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-thinking-latest"
     },
     "version": "2"
   },
@@ -71,7 +71,7 @@
     }
   ],
   "ui_font_size": 15,
-  "buffer_font_size": 15,
+  "buffer_font_size": 14,
   "buffer_font_family": "JetBrains Mono",
   "theme": "Zed Legacy: Rosé Pine",
   "experimental.theme_overrides": {
