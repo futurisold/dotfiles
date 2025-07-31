@@ -21,6 +21,7 @@
             "ctrl-j": "workspace::ActivatePaneDown",
             "ctrl-k": "workspace::ActivatePaneUp",
             "ctrl-l": "workspace::ActivatePaneRight",
+            "space e": "workspace::ToggleLeftDock",
             "space t": "workspace::ToggleBottomDock",
             "space r": "workspace::ToggleRightDock",
             "space w": "workspace::Save",

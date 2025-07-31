@@ -13,6 +13,7 @@
   "icon_theme": "Bearded Icon Theme",
   "show_edit_predictions": true,
   "edit_predictions": {
+      "disabled_globs": [],
       "mode": "eager",
       "enabled_in_text_threads": true
   },
@@ -22,19 +23,17 @@
       "model": "claude-sonnet-4-thinking-latest"
     },
     "always_allow_tool_actions": true,
-    "default_profile": "minimal",
+    "default_profile": "write",
     "default_model": {
-      "provider": "anthropic",
-      "model": "claude-sonnet-4-thinking-latest"
+      "provider": "openrouter",
+      "model": "qwen/qwen3-coder"
     },
-    "version": "2"
   },
   "features": {
-      "edit_prediction_provider": "copilot"
+      "edit_prediction_provider": "supermaven"
   },
   "language_models": {
     "anthropic": {
-      "version": "1",
       "available_models": [
         {
           "name": "claude-3-7-sonnet-latest",
@@ -57,7 +56,6 @@
           "reasoning_effort": "high"
         }
       ],
-      "version": "1"
     }
   },
   "ssh_connections": [
@@ -72,8 +70,9 @@
   ],
   "ui_font_size": 15,
   "buffer_font_size": 14,
-  "buffer_font_family": "JetBrains Mono",
-  "theme": "Zed Legacy: Rosé Pine",
+  "buffer_font_family": "Red Hat Mono",
+  "buffer_font_weight": 500,
+  "theme": "Synthwave Alpha",
   "experimental.theme_overrides": {
     "panel.focused_border": "#524f67",
     "ignored": "#504c63",
@@ -106,7 +105,14 @@
       "format_on_save": "off",
       "enable_language_server": true,
       "language_servers": ["pyright"]
-
+    },
+    "JSON": {
+      "format_on_save": "on",
+      "show_edit_predictions": true
+    },
+    "LaTeX": {
+      "format_on_save": "on",
+      "show_edit_predictions": true,
     }
   },
   "lsp": {
@@ -126,7 +132,7 @@
       "settings": {
         "texlab": {
           "build": {
-            "executable": "xelatex",
+            "executable": "pdflatex",
             "args": ["-synctex=1", "-interaction=nonstopmode", "%f"],
             "onSave": true,
             "forwardSearchAfter": true
@@ -146,6 +152,7 @@
     }
   },
   "use_autoclose": true,
+  "show_completions_on_input": true,
   "show_completion_documentation": true,
   "scroll_beyond_last_line": "off",
   "current_line_highlight": "line",
