@@ -63,6 +63,8 @@
       "keyword.operator.word": { "font_style": "normal", "font_weight": 700, "color": "#30728f" },
       "comment": { "font_style": "italic" },
       "string": { "font_style": "normal", "color": "#96a5c8" },
+      "string.escape": { "color": "#96a5c8", "font_style": "normal" },
+      "constant.escape": { "color": "#96a5c8", "font_style": "normal" },
       "comment.doc": { "font_style": "italic" },
       "constant": { "color": "#907aa9" }
     }
