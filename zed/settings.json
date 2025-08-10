@@ -20,43 +20,19 @@
   "agent": {
     "inline_assistant_model": {
       "provider": "anthropic",
-      "model": "claude-sonnet-4-thinking-latest"
+      "model": "claude-opus-4-1-thinking-latest"
     },
     "always_allow_tool_actions": true,
     "default_profile": "write",
     "default_model": {
-      "provider": "openrouter",
-      "model": "qwen/qwen3-coder"
-    },
+      "provider": "openai",
+      "model": "gpt-5"
+    }
   },
   "features": {
       "edit_prediction_provider": "supermaven"
   },
   "language_models": {
-    "anthropic": {
-      "available_models": [
-        {
-          "name": "claude-3-7-sonnet-latest",
-          "display_name": "Claude 3.7 Thinking",
-          "max_tokens": 200000,
-          "mode": {
-            "type": "thinking",
-            "budget_tokens": 32368
-          }
-        }
-      ]
-    },
-    "openai": {
-      "available_models": [
-        {
-          "name": "o4-mini",
-          "display_name": "o4-mini (high)",
-          "max_tokens": 200000,
-          "max_completion_tokens": 100000,
-          "reasoning_effort": "high"
-        }
-      ],
-    }
   },
   "ssh_connections": [
     {
@@ -72,20 +48,23 @@
   "buffer_font_size": 14,
   "buffer_font_family": "Red Hat Mono",
   "buffer_font_weight": 500,
-  "theme": "Synthwave Alpha",
+  "theme": "Rosé Pine",
   "experimental.theme_overrides": {
     "panel.focused_border": "#524f67",
     "ignored": "#504c63",
     "syntax": {
-      "comment": {
-        "font_style": "italic"
-      },
-      "comment.doc": {
-        "font_style": "italic"
-      },
-      "constant": {
-        "color": "#907aa9"
-      }
+      "keyword": { "font_style": "normal", "font_weight": 700 },
+      "keyword.control": { "font_style": "normal", "font_weight": 700 },
+      "keyword.declaration": { "font_style": "normal", "font_weight": 700 },
+      "keyword.function": { "font_style": "normal", "font_weight": 700 },
+      "keyword.import": { "font_style": "normal", "font_weight": 700 },
+      "keyword.operator": { "font_style": "normal", "font_weight": 700, "color": "#30728f" },
+      "keyword.operator.logical": { "font_style": "normal", "font_weight": 700, "color": "#30728f" },
+      "keyword.operator.word": { "font_style": "normal", "font_weight": 700, "color": "#30728f" },
+      "comment": { "font_style": "italic" },
+      "string": { "font_style": "normal", "color": "#96a5c8" },
+      "comment.doc": { "font_style": "italic" },
+      "constant": { "color": "#907aa9" }
     }
   },
   "vim_mode": true,
