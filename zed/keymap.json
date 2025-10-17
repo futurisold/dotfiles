@@ -57,7 +57,7 @@
         "bindings": {
             "<": "editor::Outdent",
             ">": "editor::Indent",
-            "space >": "assistant::QuoteSelection",
+            "space >": "agent::QuoteSelection",
             "shift-k": "editor::MoveLineUp",
             "shift-j": "editor::MoveLineDown"
       }
@@ -69,7 +69,8 @@
             "ctrl-l": "workspace::ActivatePaneRight",
             "ctrl-k": "workspace::ActivatePaneUp",
             "ctrl-j": "workspace::ActivatePaneDown",
-            "ctrl-v i": "terminal::ToggleViMode"
+            "ctrl-v i": "terminal::ToggleViMode",
+            "ctrl-n": "workspace::NewTerminal"
         }
     },
     {

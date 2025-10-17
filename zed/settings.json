@@ -17,20 +17,23 @@
       "mode": "eager",
       "enabled_in_text_threads": true
   },
+  "terminal": {
+      "keep_selection_on_copy": true
+  },
   "agent": {
     "inline_assistant_model": {
       "provider": "anthropic",
-      "model": "claude-opus-4-1-thinking-latest"
+      "model": "claude-sonnet-4-5-thinking-latest"
     },
     "always_allow_tool_actions": true,
     "default_profile": "write",
     "default_model": {
-      "provider": "openai",
-      "model": "gpt-5"
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-5-thinking-latest"
     }
   },
   "features": {
-      "edit_prediction_provider": "supermaven"
+      "edit_prediction_provider": "copilot"
   },
   "language_models": {
   },
@@ -44,11 +47,12 @@
       ]
     }
   ],
-  "ui_font_size": 15,
+  "ui_font_size": 14,
+  "ui_font_family": "Berkeley Mono",
   "buffer_font_size": 14,
-  "buffer_font_family": "Red Hat Mono",
+  "buffer_font_family": "Berkeley Mono",
   "buffer_font_weight": 500,
-  "theme": "Rosé Pine",
+  "theme": "Zed Legacy: Rosé Pine",
   "experimental.theme_overrides": {
     "panel.focused_border": "#524f67",
     "ignored": "#504c63",
@@ -93,7 +97,7 @@
     },
     "LaTeX": {
       "format_on_save": "on",
-      "show_edit_predictions": true,
+      "show_edit_predictions": true
     }
   },
   "lsp": {
