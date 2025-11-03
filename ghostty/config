@@ -1,47 +1,54 @@
-# This is the configuration file for Ghostty.
-#
-# This template file has been automatically created at the following
-# path since Ghostty couldn't find any existing config files on your system:
-#
-#   /Users/futurisold/Library/Application Support/com.mitchellh.ghostty/config
-#
-# The template does not set any default options, since Ghostty ships
-# with sensible defaults for all options. Users should only need to set
-# options that they want to change from the default.
-#
-# Run `ghostty +show-config --default --docs` to view a list of
-# all available config options and their default values.
-#
-# Additionally, each config option is also explained in detail
-# on Ghostty's website, at https://ghostty.org/docs/config.
+font-family = Berkeley Mono
+font-size = 14
+theme = Gruvbox Dark Hard
+shell-integration-features = no-cursor,sudo,no-title
+cursor-style = block
+adjust-cell-height = 35%
 
-# Config syntax crash course
-# ==========================
-# # The config file consists of simple key-value pairs,
-# # separated by equals signs.
-# font-family = Iosevka
-# window-padding-x = 2
-#
-# # Spacing around the equals sign does not matter.
-# # All of these are identical:
-# key=value
-# key= value
-# key =value
-# key = value
-#
-# # Any line beginning with a # is a comment. It's not possible to put
-# # a comment after a config option, since it would be interpreted as a
-# # part of the value. For example, this will have a value of "#123abc":
-# background = #123abc
-#
-# # Empty values are used to reset config keys to default.
-# key =
-#
-# # Some config options have unique syntaxes for their value,
-# # which is explained in the docs for that config option.
-# # Just for example:
-# resize-overlay-duration = 4s 200ms
+mouse-hide-while-typing = true
+mouse-scroll-multiplier = 2
 
-font-family = "Red Hat Mono"
-theme = "SynthwaveAlpha"
-font-size = 15
+window-padding-balance = true 
+window-save-state = always
+window-inherit-working-directory = true
+macos-titlebar-style=transparent
+window-colorspace = "display-p3"
+
+# other
+copy-on-select = clipboard
+
+# # tmux-style leader (ctrl+p) bindings
+# keybind = ctrl+p>r=reload_config
+# keybind = ctrl+p>x=close_surface
+# keybind = ctrl+p>n=new_window
+# keybind = ctrl+p>c=new_tab
+# 
+# # tabs (tmux-style)
+# keybind = ctrl+p>shift+l=next_tab
+# keybind = ctrl+p>shift+h=previous_tab
+# keybind = ctrl+p>comma=move_tab:-1
+# keybind = ctrl+p>period=move_tab:1
+# 
+# # quick tab switch (tmux-style)
+# keybind = ctrl+p>1=goto_tab:1
+# keybind = ctrl+p>2=goto_tab:2
+# keybind = ctrl+p>3=goto_tab:3
+# keybind = ctrl+p>4=goto_tab:4
+# keybind = ctrl+p>5=goto_tab:5
+# keybind = ctrl+p>6=goto_tab:6
+# keybind = ctrl+p>7=goto_tab:7
+# keybind = ctrl+p>8=goto_tab:8
+# keybind = ctrl+p>9=goto_tab:9
+# 
+# # splits (tmux-style)
+# keybind = ctrl+p>\=new_split:right
+# keybind = ctrl+p>-=new_split:down
+# keybind = ctrl+p>j=goto_split:bottom
+# keybind = ctrl+p>k=goto_split:top
+# keybind = ctrl+p>h=goto_split:left
+# keybind = ctrl+p>l=goto_split:right
+# keybind = ctrl+p>z=toggle_split_zoom
+# keybind = ctrl+p>e=equalize_splits
+# 
+# # session/window management analogs
+# keybind = ctrl+p>shift+k=close_window

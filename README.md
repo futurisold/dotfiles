@@ -1,30 +1,27 @@
 <p align="center">
-    <img alt="neovim" src="./assets/setup.png"/ style="width:75%; height:75%;"/>
+    <img alt="neovim" src="./assets/cover.png"/ style="width:75%; height:75%;"/>
 </p>
 
 # What I use:
 
 ## General
-- editor: [Neovim](https://neovim.io/)
+- editor: [Zed](https://zed.dev/) + [neovim](https://neovim.io/)
 - shell: [zsh](https://www.zsh.org/https://www.zsh.org/) + [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh)
-- terminal: [xcfe4-term](https://docs.xfce.org/apps/terminal/start) on Linux, [iTerm2](https://iterm2.com/) on MacOS
+- terminal: [ghostty](https://ghostty.org/)
 - terminal multiplexer: [tmux](https://github.com/tmux/tmux)
-- theme: [Gruber Darker](https://github.com/blazkowolf/gruber-darker.nvim)
-- fonts: [losevkaTerm Nerd Font Light](https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/IosevkaTerm/IosevkaTermNerdFont-Light.ttf)
+- theme: [Gruvbox Dark Hard](https://github.com/morhetz/gruvbox)
+- fonts: [Berkeley Mono v2](https://reidburke.com/updates/2024/12/berkeley-mono-v2/)
 - version control: [Lazygit](https://github.com/jesseduffield/lazygit)
 - pkg management: [brew](https://brew.sh/)
 
+
+Also, because I could not find a buyer for my i9 MacBook Pro, I thought it would be a great idea for it to run [Omarchy](https://omarchy.org/).
+
 ## Python
 Currently, I'm using the following setup for Python development:
-- [miniconda](https://docs.conda.io/en/latest/miniconda.html) for package management
-- `jedi-language-server` ([link](https://github.com/pappasam/jedi-language-server)) for `goto definition` and `hover` functionality, and `ruff-lsp` ([link](https://github.com/astral-sh/ruff-lsp)) for `diagnostics` and `formatting`
-- DAP for my debugger, with `nvim-dap-python` ([link](https://github.com/mfussenegger/nvim-dap-python)) as my Python adapter
-
-# References:
-- [Neovim doc](https://neovim.io/doc/)
-- [tmux doc](https://github.com/tmux/tmux/wiki)
-- [chrisatmachine](https://github.com/LunarVim/Neovim-from-scratch/tree/master)
-- [fisadev](https://vim.fisadev.com/)
-- [theprimeagen](https://github.com/ThePrimeagen/.dotfiles)
+- [uv](https://docs.astral.sh/uv/guides/install-python/)
+- pyright
+- I don't use formatting tools other than `isort` for sorting imports
+- My debugger is `breakpoint` and `print` and very rarely the built-in IDE's functionality
 
 Thanks to all developers for their amazing work!

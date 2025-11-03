@@ -33,9 +33,7 @@
     }
   },
   "features": {
-      "edit_prediction_provider": "copilot"
-  },
-  "language_models": {
+      "edit_prediction_provider": "supermaven"
   },
   "ssh_connections": [
     {
@@ -47,30 +45,16 @@
       ]
     }
   ],
-  "ui_font_size": 14,
+  "ui_font_size": 13,
   "ui_font_family": "Berkeley Mono",
   "buffer_font_size": 14,
   "buffer_font_family": "Berkeley Mono",
   "buffer_font_weight": 500,
-  "theme": "Zed Legacy: Rosé Pine",
+  "theme": "Gruvbox Dark Hard",
   "experimental.theme_overrides": {
-    "panel.focused_border": "#524f67",
-    "ignored": "#504c63",
     "syntax": {
-      "keyword": { "font_style": "normal", "font_weight": 700 },
-      "keyword.control": { "font_style": "normal", "font_weight": 700 },
-      "keyword.declaration": { "font_style": "normal", "font_weight": 700 },
-      "keyword.function": { "font_style": "normal", "font_weight": 700 },
-      "keyword.import": { "font_style": "normal", "font_weight": 700 },
-      "keyword.operator": { "font_style": "normal", "font_weight": 700, "color": "#30728f" },
-      "keyword.operator.logical": { "font_style": "normal", "font_weight": 700, "color": "#30728f" },
-      "keyword.operator.word": { "font_style": "normal", "font_weight": 700, "color": "#30728f" },
       "comment": { "font_style": "italic" },
-      "string": { "font_style": "normal", "color": "#96a5c8" },
-      "string.escape": { "color": "#96a5c8", "font_style": "normal" },
-      "constant.escape": { "color": "#96a5c8", "font_style": "normal" },
-      "comment.doc": { "font_style": "italic" },
-      "constant": { "color": "#907aa9" }
+      "comment.doc": { "font_style": "italic" }
     }
   },
   "vim_mode": true,
@@ -105,11 +89,7 @@
       "settings": {
         "python.analysis": {
           "diagnosticMode": "off",
-          "typeCheckingMode": "off",
-          "extraPaths": ["/Users/futurisold/devspace/projects/symbolicai"]
-        },
-        "python": {
-            "pythonPath": "/Users/futurisold/miniconda3/envs/symai/bin/python"
+          "typeCheckingMode": "off"
         }
       }
     },
@@ -148,7 +128,7 @@
   "ensure_final_newline_on_save": true,
   "remove_trailing_whitespace_on_save": true,
   "inlay_hints": {
-    "enabled": true
+    "enabled": false
   },
   "soft_wrap": "editor_width"
 }
