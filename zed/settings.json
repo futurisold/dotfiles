@@ -33,7 +33,7 @@
     }
   },
   "features": {
-      "edit_prediction_provider": "supermaven"
+      "edit_prediction_provider": "codestral"
   },
   "ssh_connections": [
     {
@@ -71,9 +71,9 @@
     },
     "Python": {
       "show_edit_predictions": true,
-      "format_on_save": "off",
       "enable_language_server": true,
-      "language_servers": ["pyright"]
+      "format_on_save": "off",
+      "language_servers": ["basedpyright", "ruff"]
     },
     "JSON": {
       "format_on_save": "on",
@@ -85,11 +85,20 @@
     }
   },
   "lsp": {
-    "pyright": {
+    "basedpyright": {
       "settings": {
-        "python.analysis": {
-          "diagnosticMode": "off",
-          "typeCheckingMode": "off"
+        "basedpyright.disableTaggedHints": true,
+        "basedpyright.analysis": {
+          "diagnosticMode": "openFilesOnly",
+          "typeCheckingMode": "off",
+          "diagnosticSeverityOverrides": {
+            "reportGeneralTypeIssues": "none",
+            "reportUndefinedVariable": "none",
+            "reportMissingImports": "none",
+            "reportMissingTypeStubs": "none",
+            "reportUnusedImport": "none",
+            "reportUnusedVariable": "none"
+          }
         }
       }
     },
