@@ -7,23 +7,17 @@ end
 local defaults = {
   ---@type false | "classic" | "modern" | "helix"
   preset = "classic",
-  -- Delay before showing the popup. Can be a number or a function that returns a number.
   ---@type number | fun(ctx: { keys: string, mode: string, plugin?: string }):number
   delay = function(ctx)
     return ctx.plugin and 0 or 200
   end,
   ---@param mapping wk.Mapping
   filter = function(mapping)
-    -- example to exclude mappings without a description
-    -- return mapping.desc and mapping.desc ~= ""
     return true
   end,
-  --- You can add any mappings here, or use `require('which-key').add()` later
   ---@type wk.Spec
   spec = {},
-  -- show a warning when issues were detected with your mappings
   notify = true,
-  -- Enable/disable WhichKey for certain mapping modes
   ---@param ctx { mode: string, operator: string }
   defer = function(ctx)
     if vim.list_contains({ "d", "y" }, ctx.operator) then
@@ -32,75 +26,48 @@ local defaults = {
     return vim.list_contains({ "<C-V>", "V" }, ctx.mode)
   end,
   plugins = {
-    marks = true, -- shows a list of your marks on ' and `
-    registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
-    -- the presets plugin, adds help for a bunch of default keybindings in Neovim
-    -- No actual key bindings are created
+    marks = true,
+    registers = true,
     spelling = {
-      enabled = true, -- enabling this will show WhichKey when pressing z= to select spelling suggestions
-      suggestions = 20, -- how many suggestions should be shown in the list?
+      enabled = true,
+      suggestions = 20,
     },
     presets = {
-      operators = true, -- adds help for operators like d, y, ...
-      motions = true, -- adds help for motions
-      text_objects = true, -- help for text objects triggered after entering an operator
-      windows = true, -- default bindings on <c-w>
-      nav = true, -- misc bindings to work with windows
-      z = true, -- bindings for folds, spelling and others prefixed with z
-      g = true, -- bindings for prefixed with g
+      operators = true,
+      motions = true,
+      text_objects = true,
+      windows = true,
+      nav = true,
+      z = true,
+      g = true,
     },
   },
   ---@type wk.Win.opts
   win = {
-    -- don't allow the popup to overlap with the cursor
     no_overlap = true,
-    -- width = 1,
-    -- height = { min = 4, max = 25 },
-    -- col = 0,
-    -- row = math.huge,
-    -- border = "none",
-    padding = { 1, 2 }, -- extra window padding [top/bottom, right/left]
+    padding = { 1, 2 },
     title = true,
     title_pos = "center",
     zindex = 1000,
-    -- Additional vim.wo and vim.bo options
     bo = {},
-    wo = {
-      -- winblend = 10, -- value between 0-100 0 for fully opaque and 100 for fully transparent
-    },
+    wo = {},
   },
   layout = {
-    width = { min = 20 }, -- min and max width of the columns
-    spacing = 3, -- spacing between columns
-    align = "left", -- align columns left, center or right
+    width = { min = 20 },
+    spacing = 3,
+    align = "left",
   },
   keys = {
-    scroll_down = "<c-d>", -- binding to scroll down inside the popup
-    scroll_up = "<c-u>", -- binding to scroll up inside the popup
+    scroll_down = "<c-d>",
+    scroll_up = "<c-u>",
   },
-  ---@type (string|wk.Sorter)[]
-  --- Mappings are sorted using configured sorters and natural sort of the keys
-  --- Available sorters:
-  --- * local: buffer-local mappings first
-  --- * order: order of the items (Used by plugins like marks / registers)
-  --- * group: groups last
-  --- * alphanum: alpha-numerical first
-  --- * mod: special modifier keys last
-  --- * manual: the order the mappings were added
-  --- * case: lower-case first
   sort = { "local", "order", "group", "alphanum", "mod" },
-  ---@type number|fun(node: wk.Node):boolean?
-  expand = 0, -- expand groups when <= n mappings
-  -- expand = function(node)
-  --   return not node.desc -- expand all nodes without a description
-  -- end,
-  ---@type table<string, ({[1]:string, [2]:string}|fun(str:string):string)[]>
+  expand = 0,
   replace = {
     key = {
       function(key)
         return require("which-key.view").format(key)
       end,
-      -- { "<Space>", "SPC" },
     },
     desc = {
       { "<Plug>%((.*)%)", "%1" },
@@ -114,67 +81,42 @@ local defaults = {
     },
   },
   icons = {
-    breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
-    separator = "➜", -- symbol used between a key and it's label
-    group = "+", -- symbol prepended to a group
-    ellipsis = "…",
-    --- See `lua/which-key/icons.lua` for more details
-    --- Set to `false` to disable keymap icons
-    ---@type wk.IconRule[]|false
+    breadcrumb = ">>",
+    separator = "->",
+    group = "+",
+    ellipsis = "...",
     rules = {},
-    -- use the highlights from mini.icons
-    -- When `false`, it will use `WhichKeyIcon` instead
     colors = true,
-    -- used by key format
     keys = {
-      Up = " ",
-      Down = " ",
-      Left = " ",
-      Right = " ",
-      C = "󰘴 ",
-      M = "󰘵 ",
-      S = "󰘶 ",
-      CR = "󰌑 ",
-      Esc = "󱊷 ",
-      ScrollWheelDown = "󱕐 ",
-      ScrollWheelUp = "󱕑 ",
-      NL = "󰌑 ",
-      BS = "⌫",
-      Space = "󱁐 ",
-      Tab = "󰌒 ",
-      F1 = "󱊫",
-      F2 = "󱊬",
-      F3 = "󱊭",
-      F4 = "󱊮",
-      F5 = "󱊯",
-      F6 = "󱊰",
-      F7 = "󱊱",
-      F8 = "󱊲",
-      F9 = "󱊳",
-      F10 = "󱊴",
-      F11 = "󱊵",
-      F12 = "󱊶",
+      Up = " ",
+      Down = " ",
+      Left = " ",
+      Right = " ",
+      C = "C-",
+      M = "M-",
+      S = "S-",
+      CR = "CR ",
+      Esc = "Esc ",
+      ScrollWheelDown = "ScrollDown ",
+      ScrollWheelUp = "ScrollUp ",
+      NL = "NL ",
+      BS = "BS ",
+      Space = "Space ",
+      Tab = "Tab ",
     },
   },
-  show_help = true, -- show a help message in the command line for using WhichKey
-  show_keys = true, -- show the currently pressed key and its label as a message in the command line
-  -- Which-key automatically sets up triggers for your mappings.
-  -- But you can disable this and setup the triggers yourself.
+  show_help = true,
+  show_keys = true,
   triggers = {
-    { "<auto>", mode = "nxsioc" }, -- Normal, Visual, Select, Insert, Operator-pending, Command modes
-    { "<leader>", mode = { "n", "v" } }, -- Specific trigger for leader in Normal and Visual modes
+    { "<auto>", mode = "nxsioc" },
+    { "<leader>", mode = { "n", "v" } },
   },
-  debug = false, -- enable wk.log in the current directory
+  debug = false,
 }
 
-local function breakpoint()
-    local line = vim.fn.line('.')
-    vim.api.nvim_buf_set_lines(0, line, line, false, {'import code; code.interact(local=locals())'})
-end
-
 local function toggle_explorer()
-    local status_ok, _ = pcall(vim.cmd, "NvimTreeToggle")
-    if not status_ok then
+    local ok, _ = pcall(vim.cmd, "NvimTreeToggle")
+    if not ok then
         vim.cmd("Explore")
     end
 end
@@ -185,25 +127,14 @@ local n_mappings = {
     silent=true,
     nowait=true,
     buffer=nil,
-    icon='', -- this can be set for each mapping; disabled at the root level to propagate to all mappings
+    icon='',
     { '<leader>b', "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>", desc="Buffers" },
     { '<leader>e', toggle_explorer,                                                                                                  desc="Explorer" },
     { '<leader>w', "<cmd>w!<cr>",                                                                                                    desc="Save" },
     { '<leader>q', "<cmd>q!<cr>",                                                                                                    desc="Quit" },
     { '<leader>c', "<cmd>Bdelete!<cr>",                                                                                              desc="Close Buffer" },
     { '<leader>h', "<cmd>nohlsearch<cr>",                                                                                            desc="No Highlight" },
-    { '<leader>d',                                                                                                                   desc='Debugger' },
-    { '<leader>db', "<cmd>lua require'dap'.toggle_breakpoint()<cr>",                                                                 desc="DAP Breakpoint" },
-    { '<leader>dp', breakpoint,                                                                                                      desc="Interact Breakpoint" },
-    { '<leader>dt', "<cmd>lua require'dapui'.toggle()<cr>",                                                                          desc="Toggle UI" },
-    { '<leader>dc', "<cmd>lua require'dap'.continue()<cr>",                                                                          desc="Continue" },
-    { '<leader>di', "<cmd>lua require'dap'.step_into()<cr>",                                                                         desc="Step Into" },
-    { '<leader>do', "<cmd>lua require'dap'.step_out()<cr>",                                                                          desc="Step Out" },
-    { '<leader>dO', "<cmd>lua require'dap'.step_over()<cr>",                                                                         desc="Step Over" },
-    { '<leader>dr', "<cmd>lua require'dap'.repl.toggle()<cr>",                                                                       desc="Toggle Repl" },
-    { '<leader>ds', "<cmd>lua require'dap'.continue()<cr>",                                                                          desc="Start" },
-    { '<leader>dS', "<cmd>lua require'dap'.close()<cr>",                                                                             desc="Stop" },
-    { '<leader>p',                                                                                                                   desc="Plugins (lazyvim)" },
+    { '<leader>p',                                                                                                                   desc="Plugins (lazy)" },
     { '<leader>pb', "<cmd>Lazy build<cr>",                                                                                           desc="Build Plugin" },
     { '<leader>pc', "<cmd>Lazy check<cr>",                                                                                           desc="Check for Updates" },
     { '<leader>pl', "<cmd>Lazy clean<cr>",                                                                                           desc="Clean Plugins" },
@@ -239,9 +170,8 @@ local n_mappings = {
     { '<leader>lw', "<cmd>Telescope diagnostics<cr>",                                                                                desc="Workspace Diagnostics" },
     { '<leader>lf', "<cmd>lua vim.lsp.buf.format{async=true}<cr>",                                                                   desc="Format" },
     { '<leader>li', "<cmd>LspInfo<cr>",                                                                                              desc="Info" },
-    { '<leader>lI', "<cmd>LspInstallInfo<cr>",                                                                                       desc="Installer Info" },
-    { '<leader>lj', "<cmd>lua vim.lsp.diagnostic.goto_next()<cr>",                                                                   desc="Next Diagnostic" },
-    { '<leader>lk', "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>",                                                                   desc="Prev Diagnostic" },
+    { '<leader>lj', "<cmd>lua vim.diagnostic.jump({count=1})<cr>",                                                                   desc="Next Diagnostic" },
+    { '<leader>lk', "<cmd>lua vim.diagnostic.jump({count=-1})<cr>",                                                                  desc="Prev Diagnostic" },
     { '<leader>ll', "<cmd>lua vim.lsp.codelens.run()<cr>",                                                                           desc="CodeLens Action" },
     { '<leader>lq', "<cmd>lua vim.diagnostic.setloclist()<cr>",                                                                      desc="Quickfix" },
     { '<leader>lr', "<cmd>lua vim.lsp.buf.rename()<cr>",                                                                             desc="Rename" },
@@ -273,14 +203,6 @@ local n_mappings = {
     { '<leader>ro', "<cmd>SearchReplaceSingleBufferOpen<cr>",                                                                        desc="[o]pen" },
     { '<leader>re', "<cmd>SearchReplaceSingleBufferCExpr<cr>",                                                                       desc="[e]xpr" },
     { '<leader>rf', "<cmd>SearchReplaceSingleBufferCFile<cr>",                                                                       desc="[f]ile" },
-    { '<leader>x',                                                                                                                   desc="LaTeX" },
-    { '<leader>xa', "<cmd>VimtexCompile<cr>",                                                                                        desc="Start compiler" },
-    { '<leader>xs', "<cmd>VimtexStop<cr>",                                                                                           desc="Stop compiler" },
-    { '<leader>xc', "<cmd>VimtexCompileSS<cr>",                                                                                      desc="Compile" },
-    { '<leader>xe', "<cmd>VimtexErrors<cr>",                                                                                         desc="Errors" },
-    { '<leader>xr', "<cmd>VimtexReload<cr>",                                                                                         desc="Reload plugin" },
-    { '<leader>a',                                                                                                                   desc="Avante" },
-    { '<leader>aa', "<cmd>AvanteAsk<cr>",                                                                                            desc="Ask AI copilot" },
 }
 
 local v_mappings = {
@@ -289,7 +211,7 @@ local v_mappings = {
     silent=true,
     nowait=true,
     buffer=nil,
-    icon='', -- this can be set for each mapping; disabled at the root level to propagate to all mappings
+    icon='',
     { "<leader>r",                                                      desc="Query/Replace" },
     { "<leader>rr", "<cmd>SearchReplaceWithinVisualSelection<cr>",      desc='Search and replace'},
     { "<leader>rc", "<cmd>SearchReplaceWithinVisualSelectionCWord<cr>", desc='Search and replace with current word'},

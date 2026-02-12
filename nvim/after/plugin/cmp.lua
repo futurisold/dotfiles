@@ -122,11 +122,7 @@ cmp.setup {
             border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
         },
     },
-    completion = {
-        autocompletion = true
-    },
     experimental = {
         ghost_text = false,
-        native_menu = false,
     },
 }
