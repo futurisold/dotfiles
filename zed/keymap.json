@@ -57,7 +57,7 @@
         "bindings": {
             "<": "editor::Outdent",
             ">": "editor::Indent",
-            "space >": "agent::QuoteSelection",
+            "space >": "agent::AddSelectionToThread",
             "shift-k": "editor::MoveLineUp",
             "shift-j": "editor::MoveLineDown"
       }

@@ -7,12 +7,17 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "diff_view_style": "unified",
+  "project_panel": {
+    "hide_gitignore": false
+  },
   "debugger": {
     "dock": "bottom"
   },
-  "icon_theme": "Bearded Icon Theme",
+  "icon_theme": "Zed (Default)",
   "show_edit_predictions": true,
   "edit_predictions": {
+      "provider": "copilot",
       "disabled_globs": [],
       "mode": "eager",
       "enabled_in_text_threads": true
@@ -23,17 +28,69 @@
   "agent": {
     "inline_assistant_model": {
       "provider": "anthropic",
-      "model": "claude-sonnet-4-5-thinking-latest"
+      "model": "claude-opus-4-6-thinking-latest"
     },
-    "always_allow_tool_actions": true,
     "default_profile": "write",
     "default_model": {
       "provider": "anthropic",
-      "model": "claude-sonnet-4-5-thinking-latest"
+      "model": "claude-opus-4-6-thinking-latest"
+    },
+    "model_parameters": [],
+    "profiles": {
+      "write": {
+        "name": "Write",
+        "tools": {
+          "fetch": false
+        }
+      }
     }
   },
-  "features": {
-      "edit_prediction_provider": "codestral"
+  "file_scan_inclusions": [
+      ".codex/*",
+      ".claude/*"
+  ],
+  // AMPs
+  "agent_servers": {
+      "claude": {
+      "default_model": "opus"
+    },
+  },
+  // MCPs
+  "context_servers": {
+    "deepwiki": {
+      "command": "uv",
+      "args": ["run", "--project", "****/mcp-servers", "mcp-deepwiki"],
+      "env": { "SYMAI_WARNINGS": "0" }
+    },
+    "oracle": {
+      "command": "uv",
+      "args": ["run", "--project", "****/mcp-servers", "mcp-oracle"],
+      "env": { "SYMAI_WARNINGS": "0" }
+    },
+    "mermaid": {
+      "command": "uv",
+      "args": ["run", "--project", "****/mcp-servers", "mcp-mermaid"],
+      "env": { "SYMAI_WARNINGS": "0" }
+    },
+    "scrape": {
+      "command": "uv",
+      "args": ["run", "--project", "****/mcp-servers", "mcp-scrape"],
+      "env": { "SYMAI_WARNINGS": "0" }
+    },
+    "search": {
+      "command": "uv",
+      "args": ["run", "--project", "****/mcp-servers", "mcp-search"],
+      "env": {
+        "SYMAI_WARNINGS": "0",
+        "EAI_API_BASE": "****",
+        "EAI_API_KEY": "****"
+      }
+    },
+    "librarian": {
+      "command": "uv",
+      "args": ["run", "--project", "****/mcp-servers", "mcp-librarian"],
+      "env": { "SYMAI_WARNINGS": "0" }
+    }
   },
   "ssh_connections": [
     {
@@ -64,7 +121,7 @@
   "format_on_save": "off",
   "enable_language_server": true,
   "tab_size": 4,
-  "relative_line_numbers": true,
+  "relative_line_numbers": "enabled",
   "languages": {
     "Ruby": {
       "language_servers": ["!solargraph"]
@@ -72,8 +129,8 @@
     "Python": {
       "show_edit_predictions": true,
       "enable_language_server": true,
-      "format_on_save": "off",
-      "language_servers": ["basedpyright", "ruff"]
+      "format_on_save": "on",
+      "language_servers": ["!ty", "ruff", "basedpyright", "!pyrefly", "!pyright", "!pylsp"]
     },
     "JSON": {
       "format_on_save": "on",
@@ -89,16 +146,9 @@
       "settings": {
         "basedpyright.disableTaggedHints": true,
         "basedpyright.analysis": {
-          "diagnosticMode": "openFilesOnly",
-          "typeCheckingMode": "off",
-          "diagnosticSeverityOverrides": {
-            "reportGeneralTypeIssues": "none",
-            "reportUndefinedVariable": "none",
-            "reportMissingImports": "none",
-            "reportMissingTypeStubs": "none",
-            "reportUnusedImport": "none",
-            "reportUnusedVariable": "none"
-          }
+          "extraPaths": ["****/symbolicai"],
+          "diagnosticMode": "workspace",
+          "typeCheckingMode": "off"
         }
       }
     },
