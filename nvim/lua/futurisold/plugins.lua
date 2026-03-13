@@ -14,7 +14,7 @@ end
 
 local plugins = {
     "nvim-lua/plenary.nvim",
-    { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+    { "nvim-treesitter/nvim-treesitter", branch = "main", build = ":TSUpdate" },
     { "nvim-telescope/telescope.nvim", branch = "0.1.x",
         dependencies = {
             { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
