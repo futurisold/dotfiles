@@ -14,11 +14,7 @@ vim.g.copilot_filetypes = {
     sh=true,
 }
 
-vim.keymap.set('i', '<Tab>]',    '<Plug>(copilot-dismiss)')
-vim.keymap.set('i', '<Tab><CR>', 'copilot#Accept("\\<CR>")', {
-  expr = true,
-  replace_keycodes = false
-})
+vim.keymap.set('i', '<C-]>', '<Plug>(copilot-dismiss)')
 vim.g.copilot_no_tab_map = true
 
 -- highlight color

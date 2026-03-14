@@ -70,6 +70,8 @@ cmp.setup {
                 luasnip.expand()
             elseif luasnip.expand_or_jumpable() then
                 luasnip.expand_or_jump()
+            elseif vim.fn["copilot#GetDisplayedSuggestion"]().text ~= "" then
+                vim.api.nvim_feedkeys(vim.fn["copilot#Accept"](""), "n", true)
             elseif check_backspace() then
                 fallback()
             else
