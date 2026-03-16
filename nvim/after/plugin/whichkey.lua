@@ -196,6 +196,42 @@ local n_mappings = {
     { '<leader>tf', "<cmd>ToggleTerm direction=float<cr>",                                                                           desc="Float" },
     { '<leader>th', "<cmd>ToggleTerm size=10 direction=horizontal<cr>",                                                              desc="Horizontal" },
     { '<leader>tv', "<cmd>ToggleTerm size=80 direction=vertical<cr>",                                                                desc="Vertical" },
+    { '<leader>t]', function()
+        local terms = require("toggleterm.terminal").get_all()
+        if #terms == 0 then vim.cmd("1ToggleTerm direction=float") return end
+        table.sort(terms, function(a, b) return a.id < b.id end)
+        local current = require("toggleterm.terminal").get_focused_id()
+        for i, t in ipairs(terms) do
+            if t.id == current then
+                local next = terms[i % #terms + 1]
+                next:open()
+                return
+            end
+        end
+        terms[1]:open()
+    end, desc="Next Terminal" },
+    { '<leader>t[', function()
+        local terms = require("toggleterm.terminal").get_all()
+        if #terms == 0 then vim.cmd("1ToggleTerm direction=float") return end
+        table.sort(terms, function(a, b) return a.id < b.id end)
+        local current = require("toggleterm.terminal").get_focused_id()
+        for i, t in ipairs(terms) do
+            if t.id == current then
+                local prev = terms[(i - 2) % #terms + 1]
+                prev:open()
+                return
+            end
+        end
+        terms[#terms]:open()
+    end, desc="Prev Terminal" },
+    { '<leader>ta', function()
+        local terms = require("toggleterm.terminal").get_all()
+        local max_id = 0
+        for _, t in ipairs(terms) do
+            if t.id > max_id then max_id = t.id end
+        end
+        vim.cmd((max_id + 1) .. "ToggleTerm direction=float")
+    end, desc="New Terminal" },
     { '<leader>r',                                                                                                                   desc="Query/Replace" },
     { '<leader>rs', "<cmd>SearchReplaceSingleBufferSelections<cr>",                                                                  desc="[s]election list"},
     { '<leader>rW', "<cmd>SearchReplaceSingleBufferCWORD<cr>",                                                                       desc="[W]ORD" },
