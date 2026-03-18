@@ -140,7 +140,6 @@ function _G.set_terminal_keymaps()
     local maps = {
         { [[<c-\>]], [[<cmd>ToggleTerm<cr>]] },
         { '<esc>',   [[<C-\><C-n>]] },
-        { 'jk',      [[<C-\><C-n>]] },
         { '<C-h>',   [[<C-\><C-n><C-W>h]] },
         { '<C-j>',   [[<C-\><C-n><C-W>j]] },
         { '<C-k>',   [[<C-\><C-n><C-W>k]] },
@@ -154,7 +153,7 @@ end
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 
 local Terminal = term_mod.Terminal
-local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
+local lazygit = Terminal:new({ cmd = "lazygit", hidden = true, auto_scroll = false })
 
 function _LAZYGIT_TOGGLE()
     lazygit:toggle()
