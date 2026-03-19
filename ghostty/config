@@ -3,12 +3,12 @@ font-size = 14
 theme = Gruvbox Dark Hard
 shell-integration-features = no-cursor,sudo,no-title
 cursor-style = block
-adjust-cell-height = 35%
+adjust-cell-height = 30%
 
 mouse-hide-while-typing = true
 mouse-scroll-multiplier = 2
 
-window-padding-balance = true 
+window-padding-balance = true
 window-save-state = always
 window-inherit-working-directory = true
 macos-titlebar-style=transparent
@@ -22,13 +22,13 @@ copy-on-select = clipboard
 # keybind = ctrl+p>x=close_surface
 # keybind = ctrl+p>n=new_window
 # keybind = ctrl+p>c=new_tab
-# 
+#
 # # tabs (tmux-style)
 # keybind = ctrl+p>shift+l=next_tab
 # keybind = ctrl+p>shift+h=previous_tab
 # keybind = ctrl+p>comma=move_tab:-1
 # keybind = ctrl+p>period=move_tab:1
-# 
+#
 # # quick tab switch (tmux-style)
 # keybind = ctrl+p>1=goto_tab:1
 # keybind = ctrl+p>2=goto_tab:2
@@ -39,7 +39,7 @@ copy-on-select = clipboard
 # keybind = ctrl+p>7=goto_tab:7
 # keybind = ctrl+p>8=goto_tab:8
 # keybind = ctrl+p>9=goto_tab:9
-# 
+#
 # # splits (tmux-style)
 # keybind = ctrl+p>\=new_split:right
 # keybind = ctrl+p>-=new_split:down
@@ -49,6 +49,6 @@ copy-on-select = clipboard
 # keybind = ctrl+p>l=goto_split:right
 # keybind = ctrl+p>z=toggle_split_zoom
 # keybind = ctrl+p>e=equalize_splits
-# 
+#
 # # session/window management analogs
 # keybind = ctrl+p>shift+k=close_window
