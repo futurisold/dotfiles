@@ -138,8 +138,7 @@ vim.keymap.set({"n", "t"}, "<M-[>", function() _toggleterm_cycle(-1) end, vim.tb
 function _G.set_terminal_keymaps()
     local opts = { buffer = 0, noremap = true, silent = true }
     local maps = {
-        { [[<c-\>]], [[<cmd>ToggleTerm<cr>]] },
-        { '<esc>',   [[<C-\><C-n>]] },
+        { [[<c-\>]], [[<C-\><C-n>]] },
         { '<C-h>',   [[<C-\><C-n><C-W>h]] },
         { '<C-j>',   [[<C-\><C-n><C-W>j]] },
         { '<C-k>',   [[<C-\><C-n><C-W>k]] },
